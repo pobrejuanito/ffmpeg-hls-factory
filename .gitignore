@@ -3,5 +3,6 @@
 *.m3u8
 bin/
 hls/
+.idea/
 settings.ini
-
+encoder.log
