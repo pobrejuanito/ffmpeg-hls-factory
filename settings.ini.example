@@ -1,0 +1,25 @@
+[MasterAPI]
+URL: <your api url>
+Username: <basic authentication username>
+Password: <basic authentication password>
+Fetchjob: <RESTful URL that fetches JSON job description /encoder/job>
+SlaveId: 1
+
+[Encoder]
+Log: encoder.log
+ffmpeg: bin/ffmpeg
+ffprobe: bin/ffprobe
+audio_encoder: libmp3lame
+segment_length: 9
+output_dir: hls/
+hls_audio: %s -y -i %s -c:a %s -ar 48k -ab 64k  -s %sx%s -aspect 16:9 -vn -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8
+audio_bandwidth: 64000
+hls_cell: %s -y -i %s -c:a %s -ar 48k -ab 64k -c:v libx264 -s %sx%s -aspect 16:9 -b:v 600k -r 29.97 -g 90 -profile:v baseline -level 3.0 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8
+cell_bandwidth: 664000
+hls_wifi: %s -y -i %s -c:a %s -ar 48k -ab 96k -c:v libx264 -s %sx%s -aspect 16:9 -b:v 1200k -r 29.97 -g 90 -profile:v main -level 3.1 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8
+wifi_bandwidth: 1296000
+
+[AWS_S3]
+Bucket: <s3 bucket>
+ACCESS_KEY_ID: <s3 access key>
+SECRET_ACCESS_KEY: <s3 secret key>

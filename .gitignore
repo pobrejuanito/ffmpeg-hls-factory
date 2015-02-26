@@ -1,0 +1,7 @@
+*.pyc
+*.flv
+*.m3u8
+bin/
+hls/
+settings.ini
+
