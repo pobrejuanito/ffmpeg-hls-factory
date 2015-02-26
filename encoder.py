@@ -1,4 +1,4 @@
-#!/usr/bin/env python -tt
+#!/usr/bin/env python
 # 1. Fetch job metadata from master
 # 2. Download video from S3
 # 3. Encode video into HLS
