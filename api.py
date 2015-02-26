@@ -32,7 +32,6 @@ class ApiManager(object):
             data = json.load(urllib2.urlopen(request))
             if data['count'] > 0 :
                 new_job.fileName = data['result'][0]['fileName']
-                #new_job.fileName = '00000000-0000--Heart_of_a_Samaritan-350k.flv'
                 new_job.downloadURL = data['result'][0]['downloadURL']
                 new_job.destinationURL = data['result'][0]['destinationURL']
                 new_job.id = data['result'][0]['jobId']

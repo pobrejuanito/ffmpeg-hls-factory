@@ -75,8 +75,6 @@ class Job(object):
                 self.ffmpeg,
                 self.fileName,
                 self.audio_encoder,
-                self.width,
-                self.height,
                 self.output_dir+profile)
             ).split()
             p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -145,7 +143,6 @@ class Job(object):
         os.remove(self.index_playlist)
         os.remove((self.fileName))
         logging.info('Job: Cleaning up')
-
 
     def __str__(self):
 

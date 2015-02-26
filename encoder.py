@@ -5,7 +5,6 @@
 # 4. Generate main m3u8 file
 # 5. Upload video to S3
 # 6. Report job complete
-#
 import logging, os, sys
 from config import EncoderSettings
 from api import ApiManager
@@ -32,7 +31,6 @@ def main():
     if job.id != 0:
         try:
             job.downloadFile()
-            job.probeMetadata()
             job.generateHLS()
             job.transferToS3()
             job.cleanUp()
