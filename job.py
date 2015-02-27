@@ -13,8 +13,6 @@ class Job(object):
         self.fileName = ''
         self.downloadURL = ''
         self.destinationURL = ''
-        self.width = 0
-        self.height = 0
         self.ffprobe = config.get('Encoder','ffprobe')
         self.ffmpeg = config.get('Encoder','ffmpeg')
         self.audio_encoder = config.get('Encoder','audio_encoder')
@@ -48,28 +46,9 @@ class Job(object):
             logging.warning(e)
             raise Exception('Job Error: ' + e)
 
-    def probeMetadata(self):
-
-        cmnd = [self.ffprobe, '-print_format','json', '-show_format', '-show_streams',  '-loglevel','quiet', self.fileName]
-        p = subprocess.Popen(cmnd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        out, err =  p.communicate()
-        meta = json.loads(out)
-        try:
-            # get width and height
-            # TODO Determine if we should adjust width height
-
-            self.width = meta['streams'][0]['width']
-            self.height = meta['streams'][0]['height']
-
-            logging.info('Job: probing...width: %s, height: %s'%(self.width, self.height))
-
-        except KeyError as e:
-            logging.warning('Job: KeyError: %s'%e)
-            raise Exception('Job Error: ' + e)
-
     def generateHLS(self):
 
-        for profile in self.profiles:
+        for profile in sorted(self.profiles):
 
             cmd = (self.profiles[profile] % (
                 self.ffmpeg,
@@ -146,5 +125,5 @@ class Job(object):
 
     def __str__(self):
 
-        print self.id, self.status, self.fileName, self.downloadURL, self.width, self.height, self.output_dir
+        print self.id, self.status, self.fileName, self.downloadURL, self.output_dir
 
