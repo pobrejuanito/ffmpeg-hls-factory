@@ -25,8 +25,8 @@ def main():
     logging.info("### JOB START ###")
 
     api = ApiManager()
-    # Get Job
     job = api.getJob()
+
     if job.id != 0:
         try:
             job.downloadFile()
@@ -39,7 +39,6 @@ def main():
 
         api.checkInJob(job)
 
-    #print job.__str__()
     logging.info("### JOB END   ###")
     os.unlink(pidfile)
 
@@ -47,7 +46,6 @@ def init():
 
     config = ConfigParser.ConfigParser()
     config.read('settings.ini')
-
     # Setup Logging
     logging.basicConfig(
         filename=config.get('Encoder','Log'),
