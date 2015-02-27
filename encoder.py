@@ -24,20 +24,20 @@ def main():
 
     logging.info("### JOB START ###")
 
-    api = ApiManager()
-    job = api.getJob()
+    #api = ApiManager()
+    #job = api.getJob()
 
-    if job.id != 0:
-        try:
-            job.downloadFile()
-            job.generateHLS()
-            job.transferToS3()
-            job.cleanUp()
+    #if job.id != 0:
+        #try:
+            #job.downloadFile()
+            #job.generateHLS()
+            #job.transferToS3()
+            #job.cleanUp()
 
-        except Exception as e:
-            job.status = 'Job Error: ' + e.__str__()
+        #except Exception as e:
+            #job.status = 'Job Error: ' + e.__str__()
 
-        api.checkInJob(job)
+        #api.checkInJob(job)
 
     logging.info("### JOB END   ###")
     os.unlink(pidfile)
@@ -45,7 +45,7 @@ def main():
 def init():
 
     config = ConfigParser.ConfigParser()
-    config.read('settings.ini')
+    config.readfp('settings.ini')
     # Setup Logging
     logging.basicConfig(
         filename=config.get('Encoder','log_file'),
