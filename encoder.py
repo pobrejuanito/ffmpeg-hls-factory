@@ -48,7 +48,7 @@ def init():
     config.read('settings.ini')
     # Setup Logging
     logging.basicConfig(
-        filename=config.get('Encoder','Log'),
+        filename=config.get('Encoder','log_file'),
         format='%(asctime)s %(message)s',
         datefmt='%m/%d/%Y %I:%M:%S %p',
         level=logging.INFO

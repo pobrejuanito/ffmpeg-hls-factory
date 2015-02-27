@@ -6,7 +6,7 @@ Fetchjob: <RESTful URL that fetches JSON job description /encoder/job>
 SlaveId: 1
 
 [Encoder]
-Log: encoder.log
+log_file: encoder.log
 ffmpeg: bin/ffmpeg
 ffprobe: bin/ffprobe
 audio_encoder: libmp3lame
