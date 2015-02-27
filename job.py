@@ -13,7 +13,6 @@ class Job(object):
         self.fileName = ''
         self.downloadURL = ''
         self.destinationURL = ''
-        self.ffprobe = config.get('Encoder','ffprobe')
         self.ffmpeg = config.get('Encoder','ffmpeg')
         self.audio_encoder = config.get('Encoder','audio_encoder')
         self.profiles = {

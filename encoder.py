@@ -5,8 +5,7 @@
 # 4. Generate main m3u8 file
 # 5. Upload video to S3
 # 6. Report job complete
-import logging, os, sys
-from config import EncoderSettings
+import logging, os, sys, ConfigParser
 from api import ApiManager
 
 def main():
@@ -46,10 +45,12 @@ def main():
 
 def init():
 
-    settings = EncoderSettings()
+    config = ConfigParser.ConfigParser()
+    config.read('settings.ini')
+
     # Setup Logging
     logging.basicConfig(
-        filename=settings.log_file,
+        filename=config.get('Encoder','Log'),
         format='%(asctime)s %(message)s',
         datefmt='%m/%d/%Y %I:%M:%S %p',
         level=logging.INFO
