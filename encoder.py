@@ -45,7 +45,7 @@ def main():
 def init():
 
     config = ConfigParser.ConfigParser()
-    config.readfp(open('settings.ini'))
+    config.read('settings.ini')
     # Setup Logging
     logging.basicConfig(
         filename=config.get('Encoder','log_file'),
