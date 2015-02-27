@@ -72,7 +72,7 @@ class Job(object):
         f = open(self.index_playlist, 'w')
         f.write('#EXTM3U\n')
 
-        for key in self.bandwidth:
+        for key in sorted(self.bandwidth):
 
             f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=%s\n'%(self.bandwidth[key]))
             f.write(self.output_dir+key+'_.m3u8\n')
