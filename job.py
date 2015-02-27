@@ -58,7 +58,7 @@ class Job(object):
             ).split()
             p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err =  p.communicate()
-            logging.info('Job: Generating HSL for %s error if any: %s' % (profile, err))
+            logging.info('Job: Generating HSL for %s' % (profile))
             #print out, err
         # generate index m3u8
         self.writeMainPlaylist()
