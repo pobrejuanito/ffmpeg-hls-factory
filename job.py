@@ -40,9 +40,9 @@ class Job(object):
 
         opener = urllib.URLopener()
         try:
-            full_path = urllib.urlencode(self.downloadHostname + self.downloadPath + self.fileName)
+            full_path = self.downloadHostname + self.downloadPath + self.fileName
             logging.info("Job downloading %s from %s" % (self.fileName, full_path))
-            opener.retrieve(full_path, self.fileName)
+            opener.retrieve(full_path.encode('utf-8'), self.fileName)
         except IOError as e:
             logging.warning(e)
             raise Exception('Job Error: ' + e)

@@ -17,3 +17,13 @@
 03/23/2015 04:17:36 PM ### JOB START ###
 03/23/2015 04:17:36 PM API: job found: 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
 03/23/2015 04:17:36 PM Job downloading 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv from https://avmedia.s3.amazonaws.com/2007/11/664/20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
+03/23/2015 04:24:23 PM /tmp/encoder.pid already exists, exiting
+03/23/2015 04:24:41 PM /tmp/encoder.pid already exists, exiting
+03/23/2015 04:25:22 PM /tmp/encoder.pid already exists, exiting
+03/23/2015 04:26:30 PM ### JOB START ###
+03/23/2015 04:26:31 PM API: job found: 20071103-1000-Dane_Griffin-The_Main_Who-335k.flv
+03/23/2015 04:26:31 PM Job downloading 20071103-1000-Dane_Griffin-The_Main_Who-335k.flv from https://avmedia.s3.amazonaws.com/2007/11/662/20071103-1000-Dane_Griffin-The_Main_Who-335k.flv
+03/23/2015 04:30:47 PM /tmp/encoder.pid already exists, exiting
+03/23/2015 04:30:58 PM ### JOB START ###
+03/23/2015 04:30:59 PM API: job found: 00000000-0000-Lynnwood_Spangle-Why_Bad_Things_Happen_to_Good_People-340k.flv
+03/23/2015 04:30:59 PM Job downloading 00000000-0000-Lynnwood_Spangle-Why_Bad_Things_Happen_to_Good_People-340k.flv from https://avmedia.s3.amazonaws.com/2007/12/681/00000000-0000-Lynnwood_Spangle-Why_Bad_Things_Happen_to_Good_People-340k.flv
