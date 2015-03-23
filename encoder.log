@@ -2,3 +2,18 @@
 02/27/2015 03:54:33 PM ### JOB END   ###
 02/27/2015 04:07:16 PM ### JOB START ###
 02/27/2015 04:07:16 PM ### JOB END   ###
+03/23/2015 04:07:46 PM ### JOB START ###
+03/23/2015 04:07:46 PM API: job found: 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
+03/23/2015 04:07:46 PM Job downloading 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv from https://avmedia.s3.amazonaws.com/2007/11/664/20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
+03/23/2015 04:07:48 PM ('http error', 403, 'Forbidden', <httplib.HTTPMessage instance at 0x10150a7a0>)
+03/23/2015 04:07:48 PM API: Job updated with status Job Error: cannot concatenate 'str' and 'exceptions.IOError' objects
+03/23/2015 04:07:48 PM ### JOB END   ###
+03/23/2015 04:13:46 PM ### JOB START ###
+03/23/2015 04:13:46 PM API: job found: 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
+03/23/2015 04:13:46 PM Job downloading 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv from https://avmedia.s3.amazonaws.com/2007/11/664/20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
+03/23/2015 04:13:47 PM ('http error', 403, 'Forbidden', <httplib.HTTPMessage instance at 0x104ab07a0>)
+03/23/2015 04:13:47 PM API: Job updated with status Job Error: cannot concatenate 'str' and 'exceptions.IOError' objects
+03/23/2015 04:13:47 PM ### JOB END   ###
+03/23/2015 04:17:36 PM ### JOB START ###
+03/23/2015 04:17:36 PM API: job found: 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
+03/23/2015 04:17:36 PM Job downloading 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv from https://avmedia.s3.amazonaws.com/2007/11/664/20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
