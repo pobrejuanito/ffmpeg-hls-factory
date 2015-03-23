@@ -32,7 +32,8 @@ class ApiManager(object):
             data = json.load(urllib2.urlopen(request))
             if data['count'] > 0 :
                 new_job.fileName = data['result'][0]['fileName']
-                new_job.downloadURL = data['result'][0]['downloadURL']
+                new_job.downloadPath = data['result'][0]['downloadPath']
+                new_job.downloadHostname = data['result'][0]['downloadHostname']
                 new_job.destinationURL = data['result'][0]['destinationURL']
                 new_job.id = data['result'][0]['jobId']
                 logging.info("API: job found: " + new_job.fileName)

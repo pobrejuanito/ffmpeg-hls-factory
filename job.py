@@ -11,7 +11,8 @@ class Job(object):
         self.id = 0
         self.status = 'Unknown'
         self.fileName = ''
-        self.downloadURL = ''
+        self.downloadPath = ''
+        self.downloadHostname = ''
         self.destinationURL = ''
         self.ffmpeg = config.get('Encoder','ffmpeg')
         self.audio_encoder = config.get('Encoder','audio_encoder')
@@ -39,8 +40,9 @@ class Job(object):
 
         opener = urllib.URLopener()
         try:
-            logging.info("Job downloading %s from %s" % (self.fileName, self.downloadURL))
-            opener.retrieve(self.downloadURL, self.fileName)
+            full_path = self.downloadHostname + self.downloadPath + self.fileName.encode('idna')
+            logging.info("Job downloading %s from %s" % (self.fileName, full_path))
+            opener.retrieve(self.downloadPath, self.fileName)
         except IOError as e:
             logging.warning(e)
             raise Exception('Job Error: ' + e)
@@ -125,5 +127,5 @@ class Job(object):
 
     def __str__(self):
 
-        print self.id, self.status, self.fileName, self.downloadURL, self.output_dir
+        print self.id, self.status, self.fileName, self.downloadPath, self.downloadHostname, self.output_dir
 
