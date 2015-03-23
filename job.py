@@ -40,7 +40,7 @@ class Job(object):
 
         opener = urllib.URLopener()
         try:
-            full_path = self.downloadHostname + self.downloadPath + self.fileName.encode('idna')
+            full_path = urllib.urlencode(self.downloadHostname + self.downloadPath + self.fileName)
             logging.info("Job downloading %s from %s" % (self.fileName, full_path))
             opener.retrieve(full_path, self.fileName)
         except IOError as e:
