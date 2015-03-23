@@ -42,8 +42,7 @@ class Job(object):
         try:
             full_path = self.downloadHostname + self.downloadPath + self.fileName.encode('idna')
             logging.info("Job downloading %s from %s" % (self.fileName, full_path))
-            opener.re
-            opener.retrieve(self.downloadHostname+self.downloadPath, self.fileName)
+            opener.retrieve(self.downloadHostname+self.downloadPath, self.fileName.encode('idna'))
         except IOError as e:
             logging.warning(e)
             raise Exception('Job Error: ' + e)
