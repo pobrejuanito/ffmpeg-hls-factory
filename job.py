@@ -16,22 +16,39 @@ class Job(object):
         self.destinationURL = ''
         self.ffmpeg = config.get('Encoder','ffmpeg')
         self.audio_encoder = config.get('Encoder','audio_encoder')
-        self.profiles = {
-            'audio': config.get('Encoder','hls_audio'),
-            'cell' : config.get('Encoder','hls_cell'),
-            'wifi' : config.get('Encoder','hls_wifi')
-        }
         self.bandwidth = {
-            'audio': config.get('Encoder','audio_bandwidth'),
-            'cell' : config.get('Encoder','cell_bandwidth'),
-            'wifi' : config.get('Encoder','wifi_bandwidth')
+            'audio': {
+                'profile': config.get('Encoder','hls_audio'),
+                'bandwidth': config.get('Encoder','audio_bandwidth'),
+                'name': config.get('Encoder','audio_name')
+            },
+            'cell' : {
+                'profile': config.get('Encoder','hls_cell'),
+                'bandwidth': config.get('Encoder','cell_bandwidth'),
+                'name': config.get('Encoder','cell_name')
+            },
+            'wifi_480': {
+                'profile': config.get('Encoder','hls_wifi_480'),
+                'bandwidth': config.get('Encoder','wifi_480_bandwidth'),
+                'name': config.get('Encoder','wifi_480_name')
+            },
+            'wifi_720': {
+                'profile': config.get('Encoder','hls_wifi_720'),
+                'bandwidth': config.get('Encoder','wifi_720_bandwidth'),
+                'name': config.get('Encoder','wifi_720_name')
+            },
+            'wifi_1080': {
+                'profile': config.get('Encoder','hls_wifi_1080'),
+                'bandwidth': config.get('Encoder','wifi_1080_bandwidth'),
+                'name': config.get('Encoder','wifi_1080_name')
+            }
         }
         self.output_dir = config.get('Encoder','output_dir')
         self.s3_bucket = config.get('AWS_S3','Bucket')
         self.s3_access = config.get('AWS_S3','ACCESS_KEY_ID')
         self.s3_secret = config.get('AWS_S3','SECRET_ACCESS_KEY')
-        self.index_playlist = ''
-
+        self.ios_playlist = ''
+        self.web_playlist = ''
         # if the output directory does not exists, create one
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
@@ -49,37 +66,55 @@ class Job(object):
 
     def generateHLS(self):
 
-        for profile in sorted(self.profiles):
 
-            cmd = (self.profiles[profile] % (
+        for key in sorted(self.bandwidth):
+            cmd = (self.bandwidth[key]['profile'] % (
                 self.ffmpeg,
                 self.fileName,
                 self.audio_encoder,
-                self.output_dir+profile)
+                self.output_dir+key)
             ).split()
             p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err =  p.communicate()
-            logging.info('Job: Generating HSL for %s' % (profile))
-            #print out, err
+            logging.info('Job: Generating HSL for %s' % (key))
+            print out, err
         # generate index m3u8
-        self.writeMainPlaylist()
+        self.writeIOSPlaylist()
+        self.writeWebPlaylist();
 
 
-    def writeMainPlaylist(self):
+    def writeIOSPlaylist(self):
 
         file_name, file_extension = os.path.splitext(self.fileName)
-        self.index_playlist = file_name + ".m3u8"
+        self.ios_playlist = file_name + ".m3u8"
 
-        f = open(self.index_playlist, 'w')
+        f = open(self.ios_playlist, 'w')
         f.write('#EXTM3U\n')
 
         for key in sorted(self.bandwidth):
 
-            f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=%s\n'%(self.bandwidth[key]))
+            f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.bandwidth[key]['name'], self.bandwidth[key]['bandwidth']))
             f.write(self.output_dir+key+'_.m3u8\n')
 
         f.close()
-        logging.info('Job: index playlist %s generated'%(self.index_playlist))
+        logging.info('Job: index playlist %s generated'%(self.ios_playlist))
+
+    def writeWebPlaylist(self):
+
+        file_name, file_extension = os.path.splitext(self.fileName)
+        self.web_playlist = file_name + "_web.m3u8"
+
+        f = open(self.web_playlist, 'w')
+        f.write('#EXTM3U\n')
+
+        for key in sorted(self.bandwidth):
+            # omitt audio
+            if key != 'audio':
+                f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.bandwidth[key]['name'], self.bandwidth[key]['bandwidth']))
+                f.write(self.output_dir+key+'_.m3u8\n')
+
+        f.close()
+        logging.info('Job: index playlist %s generated'%(self.web_playlist))
 
     def transferToS3(self):
 
@@ -108,8 +143,13 @@ class Job(object):
 
             # Upload index playlist
             k = boto.s3.key.Key(bucket)
-            k.key = os.path.join(self.destinationURL, self.index_playlist)
-            k.set_contents_from_filename(os.path.join(self.index_playlist))
+            k.key = os.path.join(self.destinationURL, self.ios_playlist)
+            k.set_contents_from_filename(os.path.join(self.ios_playlist))
+            k.set_acl('public-read')
+
+            k = boto.s3.key.Key(bucket)
+            k.key = os.path.join(self.destinationURL, self.web_playlist)
+            k.set_contents_from_filename(os.path.join(self.web_playlist))
             k.set_acl('public-read')
             # update job status
             self.status = 'OK'
@@ -121,11 +161,11 @@ class Job(object):
     def cleanUp(self):
 
         shutil.rmtree(self.output_dir) # delete a directory with all of its contents
-        os.remove(self.index_playlist)
+        os.remove(self.ios_playlist)
+        os.remove(self.web_playlist)
         os.remove((self.fileName))
         logging.info('Job: Cleaning up')
 
     def __str__(self):
 
         print self.id, self.status, self.fileName, self.downloadPath, self.downloadHostname, self.output_dir
-

@@ -45,6 +45,19 @@ class ApiManager(object):
 
         return new_job
 
+    # Gets a job, if no job returns an empty list
+    def getLocalJob(self):
+
+        new_job = Job()
+
+        new_job.fileName = 'SampleVideo_1280x720_10mb.mp4'
+        new_job.downloadPath = ''
+        new_job.downloadHostname = ''
+        new_job.destinationURL = ''
+        new_job.id = 1
+
+        return new_job
+
     # check in job with the master
     def checkInJob(self, job):
 
@@ -63,5 +76,3 @@ class ApiManager(object):
         auth = urllib2.HTTPBasicAuthHandler(password_mgr) # create an authentication handler
         opener = urllib2.build_opener(auth) # create an opener with the authentication handler
         urllib2.install_opener(opener) # install the opener...
-
-

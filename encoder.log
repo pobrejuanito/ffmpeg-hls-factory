@@ -1,29 +1,123 @@
-02/27/2015 03:54:33 PM ### JOB START ###
-02/27/2015 03:54:33 PM ### JOB END   ###
-02/27/2015 04:07:16 PM ### JOB START ###
-02/27/2015 04:07:16 PM ### JOB END   ###
-03/23/2015 04:07:46 PM ### JOB START ###
-03/23/2015 04:07:46 PM API: job found: 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
-03/23/2015 04:07:46 PM Job downloading 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv from https://avmedia.s3.amazonaws.com/2007/11/664/20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
-03/23/2015 04:07:48 PM ('http error', 403, 'Forbidden', <httplib.HTTPMessage instance at 0x10150a7a0>)
-03/23/2015 04:07:48 PM API: Job updated with status Job Error: cannot concatenate 'str' and 'exceptions.IOError' objects
-03/23/2015 04:07:48 PM ### JOB END   ###
-03/23/2015 04:13:46 PM ### JOB START ###
-03/23/2015 04:13:46 PM API: job found: 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
-03/23/2015 04:13:46 PM Job downloading 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv from https://avmedia.s3.amazonaws.com/2007/11/664/20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
-03/23/2015 04:13:47 PM ('http error', 403, 'Forbidden', <httplib.HTTPMessage instance at 0x104ab07a0>)
-03/23/2015 04:13:47 PM API: Job updated with status Job Error: cannot concatenate 'str' and 'exceptions.IOError' objects
-03/23/2015 04:13:47 PM ### JOB END   ###
-03/23/2015 04:17:36 PM ### JOB START ###
-03/23/2015 04:17:36 PM API: job found: 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
-03/23/2015 04:17:36 PM Job downloading 20071103-1630-Dane_Griffin-The_Main_Where-333k.flv from https://avmedia.s3.amazonaws.com/2007/11/664/20071103-1630-Dane_Griffin-The_Main_Where-333k.flv
-03/23/2015 04:24:23 PM /tmp/encoder.pid already exists, exiting
-03/23/2015 04:24:41 PM /tmp/encoder.pid already exists, exiting
-03/23/2015 04:25:22 PM /tmp/encoder.pid already exists, exiting
-03/23/2015 04:26:30 PM ### JOB START ###
-03/23/2015 04:26:31 PM API: job found: 20071103-1000-Dane_Griffin-The_Main_Who-335k.flv
-03/23/2015 04:26:31 PM Job downloading 20071103-1000-Dane_Griffin-The_Main_Who-335k.flv from https://avmedia.s3.amazonaws.com/2007/11/662/20071103-1000-Dane_Griffin-The_Main_Who-335k.flv
-03/23/2015 04:30:47 PM /tmp/encoder.pid already exists, exiting
-03/23/2015 04:30:58 PM ### JOB START ###
-03/23/2015 04:30:59 PM API: job found: 00000000-0000-Lynnwood_Spangle-Why_Bad_Things_Happen_to_Good_People-340k.flv
-03/23/2015 04:30:59 PM Job downloading 00000000-0000-Lynnwood_Spangle-Why_Bad_Things_Happen_to_Good_People-340k.flv from https://avmedia.s3.amazonaws.com/2007/12/681/00000000-0000-Lynnwood_Spangle-Why_Bad_Things_Happen_to_Good_People-340k.flv
+06/05/2017 12:04:41 PM ### JOB START ###
+06/05/2017 12:04:41 PM ### JOB END   ###
+06/05/2017 12:06:12 PM ### JOB START ###
+06/05/2017 12:06:12 PM Job: START HSL
+06/05/2017 12:06:12 PM ### JOB END   ###
+06/05/2017 12:11:23 PM ### JOB START ###
+06/05/2017 12:11:23 PM Job: START HSL
+06/05/2017 12:11:23 PM ### JOB END   ###
+06/05/2017 12:11:37 PM ### JOB START ###
+06/05/2017 12:11:37 PM Job: START HSL
+06/05/2017 12:11:37 PM ### JOB END   ###
+06/05/2017 12:12:59 PM ### JOB START ###
+06/05/2017 12:12:59 PM ['audio', 'cell', 'wifi_1080', 'wifi_480', 'wifi_720']
+06/05/2017 12:12:59 PM ### JOB END   ###
+06/05/2017 12:13:22 PM ### JOB START ###
+06/05/2017 12:13:22 PM ['audio', 'cell', 'wifi_1080', 'wifi_480', 'wifi_720']
+06/05/2017 12:13:22 PM ### JOB END   ###
+06/05/2017 12:14:11 PM ### JOB START ###
+06/05/2017 12:14:11 PM <built-in method keys of dict object at 0x102584e88>
+06/05/2017 12:14:11 PM ### JOB END   ###
+06/05/2017 12:14:21 PM ### JOB START ###
+06/05/2017 12:14:21 PM ['cell', 'wifi_720', 'wifi_480', 'audio', 'wifi_1080']
+06/05/2017 12:14:21 PM ### JOB END   ###
+06/05/2017 12:15:44 PM ### JOB START ###
+06/05/2017 12:15:44 PM ['cell', 'wifi_720', 'wifi_480', 'audio', 'wifi_1080']
+06/05/2017 12:15:44 PM ### JOB END   ###
+06/05/2017 12:17:36 PM ### JOB START ###
+06/05/2017 12:17:36 PM ### JOB END   ###
+06/05/2017 12:19:30 PM ### JOB START ###
+06/05/2017 12:19:30 PM ### JOB END   ###
+06/05/2017 12:19:56 PM ### JOB START ###
+06/05/2017 12:19:56 PM cell
+06/05/2017 12:19:56 PM wifi_720
+06/05/2017 12:19:56 PM wifi_480
+06/05/2017 12:19:56 PM audio
+06/05/2017 12:19:56 PM wifi_1080
+06/05/2017 12:19:56 PM ### JOB END   ###
+06/05/2017 12:20:55 PM ### JOB START ###
+06/05/2017 12:20:55 PM audio
+06/05/2017 12:20:55 PM cell
+06/05/2017 12:20:55 PM wifi_1080
+06/05/2017 12:20:55 PM wifi_480
+06/05/2017 12:20:55 PM wifi_720
+06/05/2017 12:20:55 PM ### JOB END   ###
+06/05/2017 12:21:11 PM ### JOB START ###
+06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 64k -vn -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '64000', 'name': 'Audio'}
+06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 64k -c:v libx264 -vf scale=320:trunc(ow/a/2)*2 -maxrate 192K -bufsize 1M -crf 18 -r 23.98 -g 30 -profile:v baseline -level 3.0 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '192000', 'name': 'Low'}
+06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 128k -c:v libx264 -vf scale=1920:trunc(ow/a/2)*2 -maxrate 5M -r 23.98 -g 90 -profile:v main -level 3.1 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '5000000', 'name': 'HD'}
+06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 128k -c:v libx264 -vf scale=480:trunc(ow/a/2)*2 -maxrate 500K -bufsize 2M -crf 18 -r 23.98 -g 30 -profile:v main -level 3.1 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '500000', 'name': 'Medium'}
+06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 128k -c:v libx264 -vf scale=1280:trunc(ow/a/2)*2 -maxrate 2M -bufsize 6M -crf 18 -r 23.98 -g 72 -profile:v main -level 3.1 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '2000000', 'name': 'High'}
+06/05/2017 12:21:11 PM ### JOB END   ###
+06/05/2017 12:21:39 PM ### JOB START ###
+06/05/2017 12:21:39 PM Audio
+06/05/2017 12:21:39 PM Low
+06/05/2017 12:21:39 PM HD
+06/05/2017 12:21:39 PM Medium
+06/05/2017 12:21:39 PM High
+06/05/2017 12:21:39 PM ### JOB END   ###
+06/05/2017 12:23:04 PM ### JOB START ###
+06/05/2017 12:23:04 PM ### JOB END   ###
+06/05/2017 12:24:20 PM ### JOB START ###
+06/05/2017 12:24:22 PM Job: Generating HSL for audio
+06/05/2017 12:24:29 PM Job: Generating HSL for cell
+06/05/2017 12:27:00 PM Job: Generating HSL for wifi_1080
+06/05/2017 12:27:21 PM Job: Generating HSL for wifi_480
+06/05/2017 12:29:05 PM Job: Generating HSL for wifi_720
+06/05/2017 12:29:05 PM Job: index playlist SampleVideo_1280x720_10mb.m3u8 generated
+06/05/2017 12:29:05 PM ### JOB END   ###
+06/05/2017 01:07:33 PM ### JOB START ###
+06/05/2017 01:07:35 PM Job: Generating HSL for audio
+06/05/2017 01:07:41 PM Job: Generating HSL for cell
+06/05/2017 01:09:53 PM Job: Generating HSL for wifi_1080
+06/05/2017 01:10:14 PM Job: Generating HSL for wifi_480
+06/05/2017 01:11:40 PM Job: Generating HSL for wifi_720
+06/05/2017 01:11:40 PM Job: index playlist SampleVideo_1280x720_10mb.m3u8 generated
+06/05/2017 01:11:40 PM Job: index playlist SampleVideo_1280x720_10mb_web.m3u8 generated
+06/05/2017 01:11:40 PM ### JOB END   ###
+06/05/2017 01:19:02 PM ### pid FILE created: Mon Jun  5 13:19:02 2017
+06/05/2017 01:19:11 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:19:31 PM ### pid FILE created: Mon Jun  5 13:19:02 2017
+06/05/2017 01:25:12 PM ### file is not old: Mon Jun  5 13:19:02 2017
+06/05/2017 01:25:12 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:25:37 PM ### file is not old: Mon Jun  5 13:19:02 2017
+06/05/2017 01:25:37 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:25:47 PM ### file is not old: Mon Jun  5 13:19:02 2017
+06/05/2017 01:25:47 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:26:06 PM ### file is not old: Mon Jun  5 13:19:02 2017
+06/05/2017 01:26:06 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:26:45 PM ### file create time: Mon Jun  5 13:19:02 2017
+06/05/2017 01:26:45 PM ### file one_day_ago: 1496597205.27
+06/05/2017 01:26:45 PM ### file is not old: Mon Jun  5 13:19:02 2017
+06/05/2017 01:26:45 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:31:38 PM ### file create time: 2017-06-05 13:19:02
+06/05/2017 01:31:38 PM ### file one_day_ago: 2017-06-04 13:31:38.350895
+06/05/2017 01:31:54 PM ### file create time: 2017-06-05 13:19:02
+06/05/2017 01:31:54 PM ### file one_day_ago: 2017-06-04 13:31:54.618057
+06/05/2017 01:31:54 PM ### file is not old: 2017-06-05 13:19:02
+06/05/2017 01:31:54 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:32:24 PM ### file create time: 2017-06-05 13:19:02
+06/05/2017 01:32:24 PM ### file one_day_ago: 2017-06-05 13:32:24.019832
+06/05/2017 01:32:24 PM ### file is old: 2017-06-05 13:19:02
+06/05/2017 01:32:24 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:32:42 PM ### file create time: 2017-06-05 13:19:02
+06/05/2017 01:32:42 PM ### file one_day_ago: 2017-06-05 13:32:42.788297
+06/05/2017 01:32:42 PM ### file is old: 2017-06-05 13:19:02
+06/05/2017 01:32:42 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:33:45 PM ### file create time: 2017-06-05 13:33:23
+06/05/2017 01:33:45 PM ### file one_day_ago: 2017-06-05 13:33:45.814823
+06/05/2017 01:33:45 PM ### file is old: 2017-06-05 13:33:23
+06/05/2017 01:33:45 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:37:02 PM ### file create time: 2017-06-05 13:33:23
+06/05/2017 01:37:02 PM ### file one_day_ago: 2017-06-04 13:37:02.021646
+06/05/2017 01:37:02 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:38:40 PM ### file create time: 2017-06-05 13:33:23
+06/05/2017 01:38:40 PM ### file one_day_ago: 2017-06-05 13:37:40.522900
+06/05/2017 01:38:40 PM /tmp/encoder.pid is stale removing and proceeding
+06/05/2017 01:38:40 PM ### JOB START ###
+06/05/2017 01:38:42 PM Job: Generating HSL for audio
+06/05/2017 01:38:50 PM Job: Generating HSL for cell
+06/05/2017 01:39:16 PM ### file create time: 2017-06-05 13:38:40
+06/05/2017 01:39:16 PM ### file one_day_ago: 2017-06-05 01:39:16.197125
+06/05/2017 01:39:16 PM /tmp/encoder.pid already exists, exiting
+06/05/2017 01:40:26 PM /tmp/encoder.pid already exists, exiting

@@ -7,25 +7,36 @@
 # 6. Report job complete
 import logging, os, sys, ConfigParser
 from api import ApiManager
+from datetime import datetime, timedelta
 
 def main():
 
     init()
-
     # check if the script is already running
     pid = str(os.getpid())
     pidfile = "/tmp/encoder.pid"
 
     if os.path.isfile(pidfile):
-        logging.warning("%s already exists, exiting" % pidfile)
-        sys.exit()
-    else:
-        file(pidfile, 'w').write(pid)
+
+        hours_ago = datetime.now() - timedelta(hours=12)
+        file_time = datetime.fromtimestamp(os.path.getctime(pidfile))
+
+        if file_time < hours_ago:
+            # pid too old, delete
+            logging.info("%s is stale removed" % pidfile)
+            os.remove(pidfile)
+        else:
+            # encoder is still running
+            logging.warning("%s already exists, exiting" % pidfile)
+            sys.exit()
+
+    file(pidfile, 'w').write(pid)
 
     logging.info("### JOB START ###")
 
     api = ApiManager()
     job = api.getJob()
+    job = api.getLocalJob()
 
     if job.id != 0:
         try:
