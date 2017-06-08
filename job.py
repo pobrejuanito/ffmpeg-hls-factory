@@ -9,14 +9,17 @@ class Job(object):
         config.read('settings.ini')
 
         self.id = 0
+        self.media_info = {}
         self.status = 'Unknown'
         self.fileName = ''
         self.downloadPath = ''
         self.downloadHostname = ''
         self.destinationURL = ''
         self.ffmpeg = config.get('Encoder','ffmpeg')
+        self.ffprobe = config.get('Encoder','ffprobe')
+        self.ffprobe_params = config.get('Encoder','ffprobe_params')
         self.audio_encoder = config.get('Encoder','audio_encoder')
-        self.bandwidth = {
+        self.hls_config = {
             'audio': {
                 'profile': config.get('Encoder','hls_audio'),
                 'bandwidth': config.get('Encoder','audio_bandwidth'),
@@ -27,10 +30,10 @@ class Job(object):
                 'bandwidth': config.get('Encoder','cell_bandwidth'),
                 'name': config.get('Encoder','cell_name')
             },
-            'wifi_480': {
-                'profile': config.get('Encoder','hls_wifi_480'),
-                'bandwidth': config.get('Encoder','wifi_480_bandwidth'),
-                'name': config.get('Encoder','wifi_480_name')
+            'wifi_360': {
+                'profile': config.get('Encoder','hls_wifi_360'),
+                'bandwidth': config.get('Encoder','wifi_360_bandwidth'),
+                'name': config.get('Encoder','wifi_360_name')
             },
             'wifi_720': {
                 'profile': config.get('Encoder','hls_wifi_720'),
@@ -43,15 +46,25 @@ class Job(object):
                 'name': config.get('Encoder','wifi_1080_name')
             }
         }
-        self.output_dir = config.get('Encoder','output_dir')
+        self.mp4_config = {
+            '240': config.get('Encoder','mp4_240'),
+            '360': config.get('Encoder','mp4_360'),
+            '720': config.get('Encoder','mp4_720'),
+            '1080': config.get('Encoder','mp4_1080')
+        }
+        self.output_dir_hls = config.get('Encoder','output_dir_hls')
+        self.output_dir_mp4 = config.get('Encoder','output_dir_mp4')
         self.s3_bucket = config.get('AWS_S3','Bucket')
         self.s3_access = config.get('AWS_S3','ACCESS_KEY_ID')
         self.s3_secret = config.get('AWS_S3','SECRET_ACCESS_KEY')
         self.ios_playlist = ''
         self.web_playlist = ''
         # if the output directory does not exists, create one
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir)
+        if not os.path.exists(self.output_dir_hls):
+            os.makedirs(self.output_dir_hls)
+
+        if not os.path.exists(self.output_dir_mp4):
+            os.makedirs(self.output_dir_mp4)
 
     def downloadFile(self):
 
@@ -60,19 +73,19 @@ class Job(object):
             full_path = self.downloadHostname + self.downloadPath + self.fileName
             logging.info("Job downloading %s from %s" % (self.fileName, full_path))
             opener.retrieve(full_path.encode('utf-8'), self.fileName)
+
         except IOError as e:
             logging.warning(e)
             raise Exception('Job Error: ' + e)
 
     def generateHLS(self):
 
-
-        for key in sorted(self.bandwidth):
-            cmd = (self.bandwidth[key]['profile'] % (
+        for key in sorted(self.hls_config):
+            cmd = (self.hls_config[key]['profile'] % (
                 self.ffmpeg,
                 self.fileName,
                 self.audio_encoder,
-                self.output_dir+key)
+                self.output_dir_hls+key)
             ).split()
             p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err =  p.communicate()
@@ -83,6 +96,44 @@ class Job(object):
         self.writeWebPlaylist();
 
 
+    def generateMp4(self):
+
+        self.probeMediaFile()
+
+        height = 1080
+
+        if 'height' in self.media_info:
+            height = int(self.media_info['height'])
+
+        for key in self.mp4_config:
+
+
+            if height >= int(key):
+
+                logging.info('Job: Generating %s MP4' % (key))
+                cmd = (self.mp4_config[key] % (
+                    self.ffmpeg,
+                    self.fileName,
+                    self.audio_encoder,
+                    self.output_dir_mp4+key)
+                ).split()
+
+                p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                out, err =  p.communicate()
+
+                if p.returncode:
+                    logging.info('ffmpeg failed')
+                    print out, err
+                    sys.exit()
+                else:
+                    logging.info('ffmpeg good!')
+            else:
+                logging.info('Job: Skipping %s (input movie is %s)' % (key, height))
+            #p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            #out, err =  p.communicate()
+            #rint out, err
+
+
     def writeIOSPlaylist(self):
 
         file_name, file_extension = os.path.splitext(self.fileName)
@@ -91,10 +142,10 @@ class Job(object):
         f = open(self.ios_playlist, 'w')
         f.write('#EXTM3U\n')
 
-        for key in sorted(self.bandwidth):
+        for key in sorted(self.hls_config):
 
-            f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.bandwidth[key]['name'], self.bandwidth[key]['bandwidth']))
-            f.write(self.output_dir+key+'_.m3u8\n')
+            f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
+            f.write(self.output_dir_hls+key+'_.m3u8\n')
 
         f.close()
         logging.info('Job: index playlist %s generated'%(self.ios_playlist))
@@ -107,11 +158,11 @@ class Job(object):
         f = open(self.web_playlist, 'w')
         f.write('#EXTM3U\n')
 
-        for key in sorted(self.bandwidth):
+        for key in sorted(self.hls_config):
             # omitt audio
             if key != 'audio':
-                f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.bandwidth[key]['name'], self.bandwidth[key]['bandwidth']))
-                f.write(self.output_dir+key+'_.m3u8\n')
+                f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
+                f.write(self.output_dir_hls+key+'_.m3u8\n')
 
         f.close()
         logging.info('Job: index playlist %s generated'%(self.web_playlist))
@@ -125,7 +176,7 @@ class Job(object):
             conn = boto.connect_s3(self.s3_access,self.s3_secret)
             bucket = conn.get_bucket(self.s3_bucket)
 
-            for (self.output_dir, dirname, filename) in os.walk(self.output_dir):
+            for (self.output_dir_hls, dirname, filename) in os.walk(self.output_dir_hls):
                 upload_file_names.extend(filename)
                 break
 
@@ -133,8 +184,8 @@ class Job(object):
 
             for filename in upload_file_names:
 
-                source_path = os.path.join(self.output_dir + filename)
-                dest_path = os.path.join(self.destinationURL + self.output_dir, filename)
+                source_path = os.path.join(self.output_dir_hls + filename)
+                dest_path = os.path.join(self.destinationURL + self.output_dir_hls, filename)
 
                 k = boto.s3.key.Key(bucket)
                 k.key = dest_path
@@ -158,9 +209,23 @@ class Job(object):
             logging.error(e) # 403 Forbidden, 404 Not Found
             raise Exception('Job Error: ' + e)
 
+    def probeMediaFile(self):
+
+        cmd = (self.ffprobe_params % (self.ffprobe, self.fileName)).split()
+        logging.info('Job: Probing Media File for %s' % (cmd))
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err =  p.communicate()
+        #print out
+        for line in out.split(os.linesep):
+
+            if line.strip():
+                name, value = line.partition("=")[::2]
+                self.media_info[name.strip()] = value
+
+
     def cleanUp(self):
 
-        shutil.rmtree(self.output_dir) # delete a directory with all of its contents
+        shutil.rmtree(self.output_dir_hls) # delete a directory with all of its contents
         os.remove(self.ios_playlist)
         os.remove(self.web_playlist)
         os.remove((self.fileName))
@@ -168,4 +233,4 @@ class Job(object):
 
     def __str__(self):
 
-        print self.id, self.status, self.fileName, self.downloadPath, self.downloadHostname, self.output_dir
+        print self.id, self.status, self.fileName, self.downloadPath, self.downloadHostname, self.output_dir_hls

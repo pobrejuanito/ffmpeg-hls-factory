@@ -35,20 +35,21 @@ def main():
     logging.info("### JOB START ###")
 
     api = ApiManager()
-    job = api.getJob()
+    #job = api.getJob()
     job = api.getLocalJob()
 
     if job.id != 0:
         try:
-            job.downloadFile()
-            job.generateHLS()
-            job.transferToS3()
-            job.cleanUp()
+            #job.downloadFile()
+            #job.generateHLS()
+            job.generateMp4()
+            #job.transferToS3()
+            #job.cleanUp()
 
         except Exception as e:
             job.status = 'Job Error: ' + e.__str__()
 
-        api.checkInJob(job)
+        #api.checkInJob(job)
 
     logging.info("### JOB END   ###")
     os.unlink(pidfile)
