@@ -10,6 +10,15 @@ class Job(object):
 
         self.id = 0
         self.media_info = {}
+        self.flavor_payload = {
+            'recordingId': '',
+            'filename': '',
+            'filesize': '',
+            'duration': '',
+            'bitrate': '',
+            'width': '',
+            'height': '',
+        }
         self.status = 'Unknown'
         self.fileName = ''
         self.downloadPath = ''
@@ -59,6 +68,7 @@ class Job(object):
         self.s3_secret = config.get('AWS_S3','SECRET_ACCESS_KEY')
         self.ios_playlist = ''
         self.web_playlist = ''
+        self.mp4_file_name = ''
         # if the output directory does not exists, create one
         if not os.path.exists(self.output_dir_hls):
             os.makedirs(self.output_dir_hls)
@@ -76,7 +86,7 @@ class Job(object):
 
         except IOError as e:
             logging.warning(e)
-            raise Exception('Job Error: ' + e)
+            raise Exception('DOWNLOAD FILE: Error: ' + e)
 
     def generateHLS(self):
 
@@ -89,49 +99,53 @@ class Job(object):
             ).split()
             p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err =  p.communicate()
-            logging.info('Job: Generating HSL for %s' % (key))
+            logging.info('GENERATE HLS: Generating %s' % (key))
             print out, err
         # generate index m3u8
         self.writeIOSPlaylist()
         self.writeWebPlaylist();
 
 
-    def generateMp4(self):
+    def generateMp4(self, api):
 
         self.probeMediaFile()
 
         height = 1080
+        self.mp4_file_name, file_extension = os.path.splitext(self.fileName)
 
         if 'height' in self.media_info:
             height = int(self.media_info['height'])
 
         for key in self.mp4_config:
 
-
             if height >= int(key):
 
-                logging.info('Job: Generating %s MP4' % (key))
+                logging.info('GENERATE MP4: Generating %s' % (key))
                 cmd = (self.mp4_config[key] % (
                     self.ffmpeg,
                     self.fileName,
                     self.audio_encoder,
-                    self.output_dir_mp4+key)
+                    self.output_dir_mp4+self.mp4_file_name+key)
                 ).split()
 
                 p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err =  p.communicate()
 
                 if p.returncode:
-                    logging.info('ffmpeg failed')
-                    print out, err
-                    sys.exit()
+                    logging.info('GENERATE MP4: ffmpeg failed out %s err %s' %(out,err))
                 else:
-                    logging.info('ffmpeg good!')
+                    logging.info('GENERATE MP4: Checking In')
+                    #api.checkInMp4Flavor({
+                    #    'recordingId': self.recordingId,
+                    #    'filename': self.fileName,
+                    #    'filesize': '',
+                    #    'duration': '',
+                    #    'bitrate': '',
+                    #    'width': '',
+                    #    'height': '',
+                    })
             else:
-                logging.info('Job: Skipping %s (input movie is %s)' % (key, height))
-            #p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            #out, err =  p.communicate()
-            #rint out, err
+                logging.info('GENERATE MP4: Skipping %s (input movie is %s)' % (key, height))
 
 
     def writeIOSPlaylist(self):
@@ -148,7 +162,7 @@ class Job(object):
             f.write(self.output_dir_hls+key+'_.m3u8\n')
 
         f.close()
-        logging.info('Job: index playlist %s generated'%(self.ios_playlist))
+        logging.info('WRITE IOS PLAYLIST: Playlist %s generated'%(self.ios_playlist))
 
     def writeWebPlaylist(self):
 
@@ -165,7 +179,7 @@ class Job(object):
                 f.write(self.output_dir_hls+key+'_.m3u8\n')
 
         f.close()
-        logging.info('Job: index playlist %s generated'%(self.web_playlist))
+        logging.info('WRITE WEB PLAYLIST: Playlist %s generated'%(self.web_playlist))
 
     def transferToS3(self):
 
@@ -180,7 +194,7 @@ class Job(object):
                 upload_file_names.extend(filename)
                 break
 
-            logging.info('Job: uploading files to Amazon S3 bucket %s' % (self.s3_bucket))
+            logging.info('S3 TRANSFER: Uploading files to bucket %s' % (self.s3_bucket))
 
             for filename in upload_file_names:
 
@@ -212,12 +226,11 @@ class Job(object):
     def probeMediaFile(self):
 
         cmd = (self.ffprobe_params % (self.ffprobe, self.fileName)).split()
-        logging.info('Job: Probing Media File for %s' % (cmd))
+        logging.info('MEDIA PROBE: Probing %s' % (cmd))
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err =  p.communicate()
         #print out
         for line in out.split(os.linesep):
-
             if line.strip():
                 name, value = line.partition("=")[::2]
                 self.media_info[name.strip()] = value
@@ -225,11 +238,12 @@ class Job(object):
 
     def cleanUp(self):
 
+        logging.info('Job: Cleaning up')
         shutil.rmtree(self.output_dir_hls) # delete a directory with all of its contents
         os.remove(self.ios_playlist)
         os.remove(self.web_playlist)
         os.remove((self.fileName))
-        logging.info('Job: Cleaning up')
+
 
     def __str__(self):
 

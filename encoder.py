@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 def main():
 
     init()
-    # check if the script is already running
+    # First check if the script is already running
     pid = str(os.getpid())
     pidfile = "/tmp/encoder.pid"
 
@@ -32,26 +32,24 @@ def main():
 
     file(pidfile, 'w').write(pid)
 
-    logging.info("### JOB START ###")
-
+    # Get job from api
     api = ApiManager()
     #job = api.getJob()
     job = api.getLocalJob()
 
     if job.id != 0:
+        logging.info("### JOB START ###")
         try:
             #job.downloadFile()
             #job.generateHLS()
-            job.generateMp4()
+            job.generateMp4(api)
             #job.transferToS3()
             #job.cleanUp()
-
         except Exception as e:
             job.status = 'Job Error: ' + e.__str__()
-
         #api.checkInJob(job)
+        logging.info("### JOB END   ###")
 
-    logging.info("### JOB END   ###")
     os.unlink(pidfile)
 
 def init():
