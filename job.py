@@ -10,15 +10,6 @@ class Job(object):
 
         self.id = 0
         self.media_info = {}
-        self.flavor_payload = {
-            'recordingId': '',
-            'filename': '',
-            'filesize': '',
-            'duration': '',
-            'bitrate': '',
-            'width': '',
-            'height': '',
-        }
         self.status = 'Unknown'
         self.fileName = ''
         self.downloadPath = ''
@@ -128,13 +119,15 @@ class Job(object):
                     self.output_dir_mp4+self.mp4_file_name+key)
                 ).split()
 
-                p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                out, err =  p.communicate()
+                print self.recordingId, self.media_info, self.fileName
+                #p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                #out, err =  p.communicate()
 
-                if p.returncode:
-                    logging.info('GENERATE MP4: ffmpeg failed out %s err %s' %(out,err))
-                else:
-                    logging.info('GENERATE MP4: Checking In')
+                #if p.returncode:
+                #    logging.info('GENERATE MP4: ffmpeg failed out %s err %s' %(out,err))
+                #else:
+                #    logging.info('GENERATE MP4: Checking In')
+                    # TODO
                     #api.checkInMp4Flavor({
                     #    'recordingId': self.recordingId,
                     #    'filename': self.fileName,
@@ -143,7 +136,7 @@ class Job(object):
                     #    'bitrate': '',
                     #    'width': '',
                     #    'height': '',
-                    })
+                    #})
             else:
                 logging.info('GENERATE MP4: Skipping %s (input movie is %s)' % (key, height))
 
@@ -221,12 +214,12 @@ class Job(object):
 
         except boto.exception.S3ResponseError as e:
             logging.error(e) # 403 Forbidden, 404 Not Found
-            raise Exception('Job Error: ' + e)
+            raise Exception('S3 TRANSFER: Error: ' + e)
 
     def probeMediaFile(self):
 
         cmd = (self.ffprobe_params % (self.ffprobe, self.fileName)).split()
-        logging.info('MEDIA PROBE: Probing %s' % (cmd))
+        logging.info('MEDIA PROBE: Probing %s' % self.fileName)
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err =  p.communicate()
         #print out
