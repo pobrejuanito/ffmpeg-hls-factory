@@ -24,17 +24,16 @@ class ApiManager(object):
     # Gets a job, if no job returns an empty list
     def get_job(self):
 
+        logging.info("API: fetching job")
         new_job = Job()
         data = {'slaveId': self.slave_id}
-
         params = urllib.urlencode(data)
         url = self.api_url + self.fetch_job_action + '?' + params
-
         request = urllib2.Request(url)
 
         try:
             data = json.load(urllib2.urlopen(request))
-            if data['count'] > 0 :
+            if data['count'] > 0:
                 new_job.fileName = data['result'][0]['fileName']
                 new_job.recordingId = data['result'][0]['recordingId']
                 new_job.downloadPath = data['result'][0]['downloadPath']
