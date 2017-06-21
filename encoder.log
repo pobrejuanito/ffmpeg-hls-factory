@@ -1,545 +1,179 @@
-06/05/2017 12:04:41 PM ### JOB START ###
-06/05/2017 12:04:41 PM ### JOB END   ###
-06/05/2017 12:06:12 PM ### JOB START ###
-06/05/2017 12:06:12 PM Job: START HSL
-06/05/2017 12:06:12 PM ### JOB END   ###
-06/05/2017 12:11:23 PM ### JOB START ###
-06/05/2017 12:11:23 PM Job: START HSL
-06/05/2017 12:11:23 PM ### JOB END   ###
-06/05/2017 12:11:37 PM ### JOB START ###
-06/05/2017 12:11:37 PM Job: START HSL
-06/05/2017 12:11:37 PM ### JOB END   ###
-06/05/2017 12:12:59 PM ### JOB START ###
-06/05/2017 12:12:59 PM ['audio', 'cell', 'wifi_1080', 'wifi_480', 'wifi_720']
-06/05/2017 12:12:59 PM ### JOB END   ###
-06/05/2017 12:13:22 PM ### JOB START ###
-06/05/2017 12:13:22 PM ['audio', 'cell', 'wifi_1080', 'wifi_480', 'wifi_720']
-06/05/2017 12:13:22 PM ### JOB END   ###
-06/05/2017 12:14:11 PM ### JOB START ###
-06/05/2017 12:14:11 PM <built-in method keys of dict object at 0x102584e88>
-06/05/2017 12:14:11 PM ### JOB END   ###
-06/05/2017 12:14:21 PM ### JOB START ###
-06/05/2017 12:14:21 PM ['cell', 'wifi_720', 'wifi_480', 'audio', 'wifi_1080']
-06/05/2017 12:14:21 PM ### JOB END   ###
-06/05/2017 12:15:44 PM ### JOB START ###
-06/05/2017 12:15:44 PM ['cell', 'wifi_720', 'wifi_480', 'audio', 'wifi_1080']
-06/05/2017 12:15:44 PM ### JOB END   ###
-06/05/2017 12:17:36 PM ### JOB START ###
-06/05/2017 12:17:36 PM ### JOB END   ###
-06/05/2017 12:19:30 PM ### JOB START ###
-06/05/2017 12:19:30 PM ### JOB END   ###
-06/05/2017 12:19:56 PM ### JOB START ###
-06/05/2017 12:19:56 PM cell
-06/05/2017 12:19:56 PM wifi_720
-06/05/2017 12:19:56 PM wifi_480
-06/05/2017 12:19:56 PM audio
-06/05/2017 12:19:56 PM wifi_1080
-06/05/2017 12:19:56 PM ### JOB END   ###
-06/05/2017 12:20:55 PM ### JOB START ###
-06/05/2017 12:20:55 PM audio
-06/05/2017 12:20:55 PM cell
-06/05/2017 12:20:55 PM wifi_1080
-06/05/2017 12:20:55 PM wifi_480
-06/05/2017 12:20:55 PM wifi_720
-06/05/2017 12:20:55 PM ### JOB END   ###
-06/05/2017 12:21:11 PM ### JOB START ###
-06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 64k -vn -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '64000', 'name': 'Audio'}
-06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 64k -c:v libx264 -vf scale=320:trunc(ow/a/2)*2 -maxrate 192K -bufsize 1M -crf 18 -r 23.98 -g 30 -profile:v baseline -level 3.0 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '192000', 'name': 'Low'}
-06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 128k -c:v libx264 -vf scale=1920:trunc(ow/a/2)*2 -maxrate 5M -r 23.98 -g 90 -profile:v main -level 3.1 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '5000000', 'name': 'HD'}
-06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 128k -c:v libx264 -vf scale=480:trunc(ow/a/2)*2 -maxrate 500K -bufsize 2M -crf 18 -r 23.98 -g 30 -profile:v main -level 3.1 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '500000', 'name': 'Medium'}
-06/05/2017 12:21:11 PM {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 128k -c:v libx264 -vf scale=1280:trunc(ow/a/2)*2 -maxrate 2M -bufsize 6M -crf 18 -r 23.98 -g 72 -profile:v main -level 3.1 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '2000000', 'name': 'High'}
-06/05/2017 12:21:11 PM ### JOB END   ###
-06/05/2017 12:21:39 PM ### JOB START ###
-06/05/2017 12:21:39 PM Audio
-06/05/2017 12:21:39 PM Low
-06/05/2017 12:21:39 PM HD
-06/05/2017 12:21:39 PM Medium
-06/05/2017 12:21:39 PM High
-06/05/2017 12:21:39 PM ### JOB END   ###
-06/05/2017 12:23:04 PM ### JOB START ###
-06/05/2017 12:23:04 PM ### JOB END   ###
-06/05/2017 12:24:20 PM ### JOB START ###
-06/05/2017 12:24:22 PM Job: Generating HSL for audio
-06/05/2017 12:24:29 PM Job: Generating HSL for cell
-06/05/2017 12:27:00 PM Job: Generating HSL for wifi_1080
-06/05/2017 12:27:21 PM Job: Generating HSL for wifi_480
-06/05/2017 12:29:05 PM Job: Generating HSL for wifi_720
-06/05/2017 12:29:05 PM Job: index playlist SampleVideo_1280x720_10mb.m3u8 generated
-06/05/2017 12:29:05 PM ### JOB END   ###
-06/05/2017 01:07:33 PM ### JOB START ###
-06/05/2017 01:07:35 PM Job: Generating HSL for audio
-06/05/2017 01:07:41 PM Job: Generating HSL for cell
-06/05/2017 01:09:53 PM Job: Generating HSL for wifi_1080
-06/05/2017 01:10:14 PM Job: Generating HSL for wifi_480
-06/05/2017 01:11:40 PM Job: Generating HSL for wifi_720
-06/05/2017 01:11:40 PM Job: index playlist SampleVideo_1280x720_10mb.m3u8 generated
-06/05/2017 01:11:40 PM Job: index playlist SampleVideo_1280x720_10mb_web.m3u8 generated
-06/05/2017 01:11:40 PM ### JOB END   ###
-06/05/2017 01:19:02 PM ### pid FILE created: Mon Jun  5 13:19:02 2017
-06/05/2017 01:19:11 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:19:31 PM ### pid FILE created: Mon Jun  5 13:19:02 2017
-06/05/2017 01:25:12 PM ### file is not old: Mon Jun  5 13:19:02 2017
-06/05/2017 01:25:12 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:25:37 PM ### file is not old: Mon Jun  5 13:19:02 2017
-06/05/2017 01:25:37 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:25:47 PM ### file is not old: Mon Jun  5 13:19:02 2017
-06/05/2017 01:25:47 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:26:06 PM ### file is not old: Mon Jun  5 13:19:02 2017
-06/05/2017 01:26:06 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:26:45 PM ### file create time: Mon Jun  5 13:19:02 2017
-06/05/2017 01:26:45 PM ### file one_day_ago: 1496597205.27
-06/05/2017 01:26:45 PM ### file is not old: Mon Jun  5 13:19:02 2017
-06/05/2017 01:26:45 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:31:38 PM ### file create time: 2017-06-05 13:19:02
-06/05/2017 01:31:38 PM ### file one_day_ago: 2017-06-04 13:31:38.350895
-06/05/2017 01:31:54 PM ### file create time: 2017-06-05 13:19:02
-06/05/2017 01:31:54 PM ### file one_day_ago: 2017-06-04 13:31:54.618057
-06/05/2017 01:31:54 PM ### file is not old: 2017-06-05 13:19:02
-06/05/2017 01:31:54 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:32:24 PM ### file create time: 2017-06-05 13:19:02
-06/05/2017 01:32:24 PM ### file one_day_ago: 2017-06-05 13:32:24.019832
-06/05/2017 01:32:24 PM ### file is old: 2017-06-05 13:19:02
-06/05/2017 01:32:24 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:32:42 PM ### file create time: 2017-06-05 13:19:02
-06/05/2017 01:32:42 PM ### file one_day_ago: 2017-06-05 13:32:42.788297
-06/05/2017 01:32:42 PM ### file is old: 2017-06-05 13:19:02
-06/05/2017 01:32:42 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:33:45 PM ### file create time: 2017-06-05 13:33:23
-06/05/2017 01:33:45 PM ### file one_day_ago: 2017-06-05 13:33:45.814823
-06/05/2017 01:33:45 PM ### file is old: 2017-06-05 13:33:23
-06/05/2017 01:33:45 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:37:02 PM ### file create time: 2017-06-05 13:33:23
-06/05/2017 01:37:02 PM ### file one_day_ago: 2017-06-04 13:37:02.021646
-06/05/2017 01:37:02 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:38:40 PM ### file create time: 2017-06-05 13:33:23
-06/05/2017 01:38:40 PM ### file one_day_ago: 2017-06-05 13:37:40.522900
-06/05/2017 01:38:40 PM /tmp/encoder.pid is stale removing and proceeding
-06/05/2017 01:38:40 PM ### JOB START ###
-06/05/2017 01:38:42 PM Job: Generating HSL for audio
-06/05/2017 01:38:50 PM Job: Generating HSL for cell
-06/05/2017 01:39:16 PM ### file create time: 2017-06-05 13:38:40
-06/05/2017 01:39:16 PM ### file one_day_ago: 2017-06-05 01:39:16.197125
-06/05/2017 01:39:16 PM /tmp/encoder.pid already exists, exiting
-06/05/2017 01:40:26 PM /tmp/encoder.pid already exists, exiting
-06/07/2017 07:13:26 PM /tmp/encoder.pid is stale removed
-06/07/2017 07:13:26 PM ### JOB START ###
-06/07/2017 07:13:28 PM Job: Generating HSL for audio
-06/07/2017 07:13:48 PM /tmp/encoder.pid already exists, exiting
-06/07/2017 07:14:47 PM ### JOB START ###
-06/07/2017 07:14:47 PM Job: Generating MP4 for {'profile': '%s -y -i %s -c:a %s -ar 44100 -ab 64k -c:v libx264 -b:v 192K -maxrate 192K -bufsize 1M -vf scale=320:trunc(ow/a/2)*2 -crf 18 -r 23.98 -g 30 -profile:v baseline -level 3.0 -f hls -hls_time 9 -hls_list_size 0 %s_.m3u8', 'bandwidth': '192000', 'name': 'Low'}
-06/07/2017 07:14:47 PM ### JOB END   ###
-06/07/2017 07:15:22 PM ### JOB START ###
-06/07/2017 07:15:22 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 500k -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -c:a %s -ar 44100 -ab 128k %s_500k.mp4
-06/07/2017 07:15:22 PM ### JOB END   ###
-06/07/2017 07:15:44 PM ### JOB START ###
-06/07/2017 07:15:44 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 500k -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -c:a %s -ar 44100 -ab 128k %s_500k.mp4
-06/07/2017 07:15:44 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 1M -maxrate 1M -bufsize 2000k -vf scale=-1:720 -threads 0 -c:a %s -ar 44100 -ab 128k %s_1000k.mp4
-06/07/2017 07:15:44 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 3M -maxrate 3M -bufsize 5000k -vf scale=-1:1080 -threads 0 -c:a %s -ar 44100 -ab 128k %s_3000k.mp4
-06/07/2017 07:15:44 PM ### JOB END   ###
-06/07/2017 07:20:00 PM ### JOB START ###
-06/07/2017 07:20:00 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 500k -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -c:a %s -ar 44100 -ab 128k %s.mp4
-06/07/2017 07:20:00 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 1M -maxrate 1M -bufsize 2000k -vf scale=-1:720 -threads 0 -c:a %s -ar 44100 -ab 128k %s.mp4
-06/07/2017 07:20:00 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 3M -maxrate 3M -bufsize 5000k -vf scale=-1:1080 -threads 0 -c:a %s -ar 44100 -ab 128k %s.mp4
-06/07/2017 07:20:00 PM ### JOB END   ###
-06/07/2017 07:20:08 PM ### JOB START ###
-06/07/2017 07:20:08 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 500k -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -c:a %s -ar 44100 -ab 128k %s.mp4
-06/07/2017 07:20:08 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 1M -maxrate 1M -bufsize 2000k -vf scale=-1:720 -threads 0 -c:a %s -ar 44100 -ab 128k %s.mp4
-06/07/2017 07:20:08 PM Job: Generating MP4 for %s -y -i %s -c:v libx264 -profile:v high -preset slow -b:v 3M -maxrate 3M -bufsize 5000k -vf scale=-1:1080 -threads 0 -c:a %s -ar 44100 -ab 128k %s.mp4
-06/07/2017 07:20:08 PM ### JOB END   ###
-06/07/2017 07:20:23 PM ### JOB START ###
-06/07/2017 07:20:23 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', 'mp4/wifi_480.mp4']
-06/07/2017 07:20:23 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', 'mp4/wifi_720.mp4']
-06/07/2017 07:20:23 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', 'mp4/wifi_1080.mp4']
-06/07/2017 07:20:23 PM ### JOB END   ###
-06/07/2017 07:21:17 PM ### JOB START ###
-06/07/2017 07:21:17 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', 'mp4/wifi_480.mp4']
-06/07/2017 07:21:17 PM Job: Generating HSL for wifi_480
-06/07/2017 07:21:17 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', 'mp4/wifi_720.mp4']
-06/07/2017 07:21:17 PM Job: Generating HSL for wifi_720
-06/07/2017 07:21:17 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', 'mp4/wifi_1080.mp4']
-06/07/2017 07:21:17 PM Job: Generating HSL for wifi_1080
-06/07/2017 07:21:17 PM ### JOB END   ###
-06/07/2017 07:24:08 PM ### JOB START ###
-06/07/2017 07:24:08 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/wifi_480.mp4']
-06/07/2017 07:24:08 PM Job: Generating HSL for wifi_480
-06/07/2017 07:24:08 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/wifi_720.mp4']
-06/07/2017 07:24:08 PM Job: Generating HSL for wifi_720
-06/07/2017 07:24:08 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/wifi_1080.mp4']
-06/07/2017 07:24:08 PM Job: Generating HSL for wifi_1080
-06/07/2017 07:24:08 PM ### JOB END   ###
-06/07/2017 07:45:20 PM ### JOB START ###
-06/07/2017 07:45:20 PM Job: Probing Media File for ['-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:45:20 PM ### JOB END   ###
-06/07/2017 07:46:51 PM ### JOB START ###
-06/07/2017 07:46:51 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:46:51 PM ### JOB END   ###
-06/07/2017 07:47:08 PM ### JOB START ###
-06/07/2017 07:47:08 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:47:08 PM ### JOB END   ###
-06/07/2017 07:50:24 PM ### JOB START ###
-06/07/2017 07:50:24 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:50:24 PM ### JOB END   ###
-06/07/2017 07:53:02 PM ### JOB START ###
-06/07/2017 07:53:02 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:53:02 PM ### JOB END   ###
-06/07/2017 07:53:21 PM ### JOB START ###
-06/07/2017 07:53:21 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:53:21 PM ### JOB END   ###
-06/07/2017 07:55:14 PM ### JOB START ###
-06/07/2017 07:55:14 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:55:14 PM ### JOB END   ###
-06/07/2017 07:55:33 PM ### JOB START ###
-06/07/2017 07:55:33 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:55:33 PM ### JOB END   ###
-06/07/2017 07:55:40 PM ### JOB START ###
-06/07/2017 07:55:40 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:55:40 PM ### JOB END   ###
-06/07/2017 07:56:19 PM ### JOB START ###
-06/07/2017 07:56:19 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:56:19 PM ### JOB END   ###
-06/07/2017 07:56:36 PM ### JOB START ###
-06/07/2017 07:56:36 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:56:36 PM ### JOB END   ###
-06/07/2017 07:57:45 PM ### JOB START ###
-06/07/2017 07:57:45 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:57:45 PM ### JOB END   ###
-06/07/2017 07:58:31 PM ### JOB START ###
-06/07/2017 07:58:31 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:58:31 PM ### JOB END   ###
-06/07/2017 07:58:32 PM ### JOB START ###
-06/07/2017 07:58:32 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:58:32 PM ### JOB END   ###
-06/07/2017 07:58:34 PM ### JOB START ###
-06/07/2017 07:58:34 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:58:34 PM ### JOB END   ###
-06/07/2017 07:58:55 PM ### JOB START ###
-06/07/2017 07:58:55 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:58:55 PM ### JOB END   ###
-06/07/2017 07:59:05 PM ### JOB START ###
-06/07/2017 07:59:05 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 07:59:05 PM ### JOB END   ###
-06/07/2017 08:00:20 PM ### JOB START ###
-06/07/2017 08:00:20 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:00:20 PM ### JOB END   ###
-06/07/2017 08:00:29 PM ### JOB START ###
-06/07/2017 08:00:29 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:00:29 PM ### JOB END   ###
-06/07/2017 08:00:36 PM ### JOB START ###
-06/07/2017 08:00:36 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:00:36 PM ### JOB END   ###
-06/07/2017 08:01:21 PM ### JOB START ###
-06/07/2017 08:01:21 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:01:21 PM ### JOB END   ###
-06/07/2017 08:01:36 PM ### JOB START ###
-06/07/2017 08:01:36 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:01:36 PM ### JOB END   ###
-06/07/2017 08:03:23 PM ### JOB START ###
-06/07/2017 08:03:23 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:03:23 PM ### JOB END   ###
-06/07/2017 08:03:49 PM ### JOB START ###
-06/07/2017 08:03:49 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:03:49 PM ### JOB END   ###
-06/07/2017 08:03:55 PM ### JOB START ###
-06/07/2017 08:03:55 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 08:03:55 PM ### JOB END   ###
-06/07/2017 08:04:47 PM ### JOB START ###
-06/07/2017 08:04:47 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp41']
-06/07/2017 08:04:47 PM ### JOB END   ###
-06/07/2017 10:01:26 PM ### JOB START ###
-06/07/2017 10:01:26 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/wifi_480.mp4']
-06/07/2017 10:01:26 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/wifi_720.mp4']
-06/07/2017 10:03:05 PM /tmp/encoder.pid already exists, exiting
-06/07/2017 10:03:13 PM ### JOB START ###
-06/07/2017 10:03:13 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:03:13 PM ### JOB END   ###
-06/07/2017 10:04:29 PM ### JOB START ###
-06/07/2017 10:04:29 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:04:29 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:04:29 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:04:29 PM ### JOB END   ###
-06/07/2017 10:05:45 PM ### JOB START ###
-06/07/2017 10:05:45 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:05:45 PM ### JOB END   ###
-06/07/2017 10:05:58 PM ### JOB START ###
-06/07/2017 10:05:58 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:05:58 PM ### JOB END   ###
-06/07/2017 10:07:23 PM ### JOB START ###
-06/07/2017 10:07:23 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:07:23 PM ### JOB END   ###
-06/07/2017 10:07:25 PM ### JOB START ###
-06/07/2017 10:07:25 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:07:25 PM ### JOB END   ###
-06/07/2017 10:07:48 PM ### JOB START ###
-06/07/2017 10:07:48 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:07:48 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:07:48 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:07:48 PM ### JOB END   ###
-06/07/2017 10:08:42 PM ### JOB START ###
-06/07/2017 10:08:42 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:08:42 PM ### JOB END   ###
-06/07/2017 10:08:59 PM ### JOB START ###
-06/07/2017 10:08:59 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:08:59 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:08:59 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:08:59 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:08:59 PM ### JOB END   ###
-06/07/2017 10:09:12 PM ### JOB START ###
-06/07/2017 10:09:12 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:09:12 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:09:12 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:09:12 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:09:12 PM ### JOB END   ###
-06/07/2017 10:10:32 PM ### JOB START ###
-06/07/2017 10:10:32 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:10:32 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:10:32 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:10:32 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:10:32 PM ### JOB END   ###
-06/07/2017 10:10:38 PM ### JOB START ###
-06/07/2017 10:10:38 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:10:38 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:10:38 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:10:38 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:10:38 PM ### JOB END   ###
-06/07/2017 10:11:02 PM ### JOB START ###
-06/07/2017 10:11:02 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:11:02 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:11:02 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:11:02 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:11:02 PM ### JOB END   ###
-06/07/2017 10:13:36 PM ### JOB START ###
-06/07/2017 10:13:36 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:13:36 PM ### JOB END   ###
-06/07/2017 10:13:52 PM ### JOB START ###
-06/07/2017 10:13:52 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:13:52 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:13:52 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:13:52 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:13:52 PM ### JOB END   ###
-06/07/2017 10:14:08 PM ### JOB START ###
-06/07/2017 10:14:08 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:14:08 PM ### JOB END   ###
-06/07/2017 10:14:10 PM ### JOB START ###
-06/07/2017 10:14:10 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:14:10 PM ### JOB END   ###
-06/07/2017 10:14:27 PM ### JOB START ###
-06/07/2017 10:14:27 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:14:27 PM ### JOB END   ###
-06/07/2017 10:14:41 PM ### JOB START ###
-06/07/2017 10:14:41 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:14:41 PM ### JOB END   ###
-06/07/2017 10:14:53 PM ### JOB START ###
-06/07/2017 10:14:53 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:14:53 PM ### JOB END   ###
-06/07/2017 10:15:03 PM ### JOB START ###
-06/07/2017 10:15:03 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:15:03 PM ### JOB END   ###
-06/07/2017 10:15:14 PM ### JOB START ###
-06/07/2017 10:15:14 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:15:14 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:15:14 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:15:14 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:15:14 PM ### JOB END   ###
-06/07/2017 10:15:29 PM ### JOB START ###
-06/07/2017 10:15:29 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:15:29 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '3M', '-maxrate', '3M', '-bufsize', '5000k', '-vf', 'scale=-1:1080', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/1080.mp4']
-06/07/2017 10:15:29 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:15:29 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:15:29 PM ### JOB END   ###
-06/07/2017 10:20:49 PM ### JOB START ###
-06/07/2017 10:20:49 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:20:49 PM ### JOB END   ###
-06/07/2017 10:21:13 PM ### JOB START ###
-06/07/2017 10:21:13 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:21:13 PM ### JOB END   ###
-06/07/2017 10:21:38 PM ### JOB START ###
-06/07/2017 10:21:38 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:21:38 PM ### JOB END   ###
-06/07/2017 10:22:08 PM ### JOB START ###
-06/07/2017 10:22:08 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:22:08 PM ### JOB END   ###
-06/07/2017 10:22:19 PM ### JOB START ###
-06/07/2017 10:22:19 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:22:19 PM ### JOB END   ###
-06/07/2017 10:22:39 PM ### JOB START ###
-06/07/2017 10:22:39 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:22:39 PM ### JOB END   ###
-06/07/2017 10:22:45 PM ### JOB START ###
-06/07/2017 10:22:45 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:22:45 PM ### JOB END   ###
-06/07/2017 10:22:56 PM ### JOB START ###
-06/07/2017 10:22:56 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:22:56 PM ### JOB END   ###
-06/07/2017 10:23:34 PM ### JOB START ###
-06/07/2017 10:23:34 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:23:34 PM ### JOB END   ###
-06/07/2017 10:23:50 PM ### JOB START ###
-06/07/2017 10:23:50 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:23:50 PM ### JOB END   ###
-06/07/2017 10:24:10 PM ### JOB START ###
-06/07/2017 10:24:10 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:24:10 PM Job: Original 720 smaller than 1080
-06/07/2017 10:24:10 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:24:10 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:24:10 PM ### JOB END   ###
-06/07/2017 10:24:35 PM ### JOB START ###
-06/07/2017 10:24:35 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:24:35 PM Job: Original 720 smaller than 1080
-06/07/2017 10:24:35 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:24:35 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:24:35 PM ### JOB END   ###
-06/07/2017 10:25:27 PM ### JOB START ###
-06/07/2017 10:25:27 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:25:27 PM Job: Skipping 720 Original smaller than 1080
-06/07/2017 10:25:27 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '1M', '-maxrate', '1M', '-bufsize', '2000k', '-vf', 'scale=-1:720', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/720.mp4']
-06/07/2017 10:25:27 PM Job: Generating MP4 for ['bin/ffmpeg', '-y', '-i', 'SampleVideo_1280x720_10mb.mp4', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-b:v', '500k', '-maxrate', '500k', '-bufsize', '1000k', '-vf', 'scale=-1:480', '-threads', '0', '-c:a', 'libmp3lame', '-ar', '44100', '-ab', '128k', '-f', 'mp4', 'mp4/480.mp4']
-06/07/2017 10:25:27 PM ### JOB END   ###
-06/07/2017 10:26:08 PM ### JOB START ###
-06/07/2017 10:26:08 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:26:08 PM Job: Skipping 720 Original smaller than 1080
-06/07/2017 10:26:08 PM Job: Generating 720 MP4
-06/07/2017 10:26:08 PM Job: Generating 480 MP4
-06/07/2017 10:26:08 PM ### JOB END   ###
-06/07/2017 10:26:38 PM ### JOB START ###
-06/07/2017 10:26:38 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:26:38 PM Job: Skipping 720 (input movie smaller than 1080)
-06/07/2017 10:26:38 PM Job: Generating 720 MP4
-06/07/2017 10:26:38 PM Job: Generating 480 MP4
-06/07/2017 10:26:38 PM ### JOB END   ###
-06/07/2017 10:27:31 PM ### JOB START ###
-06/07/2017 10:27:31 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:27:31 PM Job: Skipping 1080 (input movie smaller than 720)
-06/07/2017 10:27:31 PM Job: Generating 720 MP4
-06/07/2017 10:27:31 PM Job: Generating 480 MP4
-06/07/2017 10:27:31 PM ### JOB END   ###
-06/07/2017 10:27:49 PM ### JOB START ###
-06/07/2017 10:27:49 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:27:49 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 10:27:49 PM Job: Generating 720 MP4
-06/07/2017 10:27:49 PM Job: Generating 480 MP4
-06/07/2017 10:27:49 PM ### JOB END   ###
-06/07/2017 10:29:06 PM ### JOB START ###
-06/07/2017 10:29:06 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:29:06 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 10:29:06 PM Job: Generating 720 MP4
-06/07/2017 10:30:29 PM Job: Generating 480 MP4
-06/07/2017 10:30:29 PM ### JOB END   ###
-06/07/2017 10:40:46 PM ### JOB START ###
-06/07/2017 10:40:46 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:40:46 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 10:40:46 PM Job: Generating 720 MP4
-06/07/2017 10:42:07 PM ffmpeg failed
-06/07/2017 10:42:07 PM Job: Generating 480 MP4
-06/07/2017 10:42:37 PM ffmpeg failed
-06/07/2017 10:42:37 PM ### JOB END   ###
-06/07/2017 10:44:30 PM ### JOB START ###
-06/07/2017 10:44:30 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:44:30 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 10:44:30 PM Job: Generating 720 MP4
-06/07/2017 10:45:59 PM ffmpeg failed
-06/07/2017 10:45:59 PM Job: Generating 480 MP4
-06/07/2017 10:45:59 PM ffmpeg failed
-06/07/2017 10:45:59 PM ### JOB END   ###
-06/07/2017 10:47:17 PM ### JOB START ###
-06/07/2017 10:47:17 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:47:17 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 10:47:17 PM Job: Generating 480 MP4
-06/07/2017 10:47:17 PM ffmpeg failed
-06/07/2017 10:47:17 PM ### JOB END   ###
-06/07/2017 10:47:29 PM ### JOB START ###
-06/07/2017 10:47:29 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 10:47:29 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 10:47:29 PM Job: Generating 720 MP4
-06/07/2017 10:48:57 PM ffmpeg good!
-06/07/2017 10:48:57 PM Job: Generating 480 MP4
-06/07/2017 10:48:57 PM ffmpeg failed
-06/07/2017 10:48:57 PM ### JOB END   ###
-06/07/2017 11:04:52 PM ### JOB START ###
-06/07/2017 11:04:52 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 11:04:52 PM Job: Generating 720 MP4
-06/07/2017 11:06:19 PM ffmpeg good!
-06/07/2017 11:06:19 PM Job: Generating 240 MP4
-06/07/2017 11:06:31 PM ffmpeg good!
-06/07/2017 11:06:31 PM Job: Generating 360 MP4
-06/07/2017 11:06:52 PM ffmpeg good!
-06/07/2017 11:06:52 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 11:06:52 PM ### JOB END   ###
-06/07/2017 11:16:37 PM ### JOB START ###
-06/07/2017 11:16:37 PM Job: Probing Media File for ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/07/2017 11:16:37 PM Job: Generating 720 MP4
-06/07/2017 11:18:00 PM ffmpeg good!
-06/07/2017 11:18:00 PM Job: Generating 240 MP4
-06/07/2017 11:18:12 PM ffmpeg good!
-06/07/2017 11:18:12 PM Job: Generating 360 MP4
-06/07/2017 11:18:32 PM ffmpeg good!
-06/07/2017 11:18:32 PM Job: Skipping 1080 (input movie is 720)
-06/07/2017 11:18:32 PM ### JOB END   ###
-06/08/2017 05:42:48 PM ### JOB START ###
-06/08/2017 05:42:48 PM ### JOB END   ###
-06/08/2017 05:45:17 PM ### JOB START ###
-06/08/2017 05:45:17 PM Error checking in mp4 flavor: %
-06/08/2017 05:45:17 PM ### JOB END   ###
-06/08/2017 05:45:46 PM ### JOB START ###
-06/08/2017 05:45:46 PM Error checking in mp4 flavor: %
-06/08/2017 05:45:46 PM ### JOB END   ###
-06/08/2017 05:46:04 PM ### JOB START ###
-06/08/2017 05:46:04 PM Error checking in mp4 flavor: %
-06/08/2017 05:46:04 PM ### JOB END   ###
-06/08/2017 05:46:22 PM ### JOB START ###
-06/08/2017 05:46:22 PM MP4 Flavor Added: %
-06/08/2017 05:46:22 PM ### JOB END   ###
-06/08/2017 05:46:59 PM ### JOB START ###
-06/08/2017 05:47:00 PM MP4 Flavor Added
-06/08/2017 05:47:00 PM ### JOB END   ###
-06/08/2017 05:47:06 PM ### JOB START ###
-06/08/2017 05:47:06 PM ### JOB END   ###
-06/08/2017 05:47:23 PM ### JOB START ###
-06/08/2017 05:47:23 PM ### JOB END   ###
-06/08/2017 05:51:06 PM ### JOB START ###
-06/08/2017 05:51:06 PM MP4 Flavor Added
-06/08/2017 05:51:06 PM ### JOB END   ###
-06/08/2017 05:51:16 PM ### JOB START ###
-06/08/2017 05:51:16 PM HTTP Error 422: Unprocessable Entity
-06/08/2017 05:51:16 PM ### JOB END   ###
-06/08/2017 05:51:58 PM ### JOB START ###
-06/08/2017 05:51:59 PM Check in mp4: HTTP Error 422: Unprocessable Entity
-06/08/2017 05:51:59 PM ### JOB END   ###
-06/08/2017 05:52:59 PM ### JOB START ###
-06/08/2017 05:52:59 PM CHECKIN MP4: Flavor Added
-06/08/2017 05:52:59 PM ### JOB END   ###
-06/08/2017 08:37:11 PM ### JOB START ###
-06/08/2017 08:37:11 PM MEDIA PROBE: Probing ['bin/ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,bit_rate,duration', '-of', 'default=noprint_wrappers=1', 'SampleVideo_1280x720_10mb.mp4']
-06/08/2017 08:37:11 PM GENERATE MP4: Generating 720
-06/08/2017 08:37:11 PM ### JOB END   ###
-06/08/2017 08:37:39 PM ### JOB START ###
-06/08/2017 08:37:39 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
-06/08/2017 08:37:39 PM GENERATE MP4: Generating 720
-06/08/2017 08:37:39 PM ### JOB END   ###
-06/08/2017 08:37:57 PM ### JOB START ###
-06/08/2017 08:37:57 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
-06/08/2017 08:37:57 PM GENERATE MP4: Generating 720
-06/08/2017 08:37:57 PM GENERATE MP4: Generating 240
-06/08/2017 08:37:57 PM GENERATE MP4: Generating 360
-06/08/2017 08:37:57 PM GENERATE MP4: Skipping 1080 (input movie is 720)
-06/08/2017 08:37:57 PM ### JOB END   ###
-06/08/2017 08:38:17 PM ### JOB START ###
-06/08/2017 08:38:17 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
-06/08/2017 08:38:17 PM GENERATE MP4: Generating 720
-06/08/2017 08:38:17 PM GENERATE MP4: Generating 240
-06/08/2017 08:38:17 PM GENERATE MP4: Generating 360
-06/08/2017 08:38:17 PM GENERATE MP4: Skipping 1080 (input movie is 720)
-06/08/2017 08:38:17 PM ### JOB END   ###
-06/08/2017 08:38:32 PM ### JOB START ###
-06/08/2017 08:38:32 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
-06/08/2017 08:38:32 PM GENERATE MP4: Generating 720
-06/08/2017 08:38:32 PM GENERATE MP4: Generating 240
-06/08/2017 08:38:32 PM GENERATE MP4: Generating 360
-06/08/2017 08:38:32 PM GENERATE MP4: Skipping 1080 (input movie is 720)
-06/08/2017 08:38:32 PM ### JOB END   ###
-06/08/2017 08:38:40 PM ### JOB START ###
-06/08/2017 08:38:40 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
-06/08/2017 08:38:40 PM GENERATE MP4: Generating 720
-06/08/2017 08:38:40 PM GENERATE MP4: Generating 240
-06/08/2017 08:38:40 PM GENERATE MP4: Generating 360
-06/08/2017 08:38:40 PM GENERATE MP4: Skipping 1080 (input movie is 720)
-06/08/2017 08:38:40 PM ### JOB END   ###
+06/20/2017 11:20:39 PM ### JOB START ###
+06/20/2017 11:20:39 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/20/2017 11:20:39 PM GENERATE MP4: Generating 720
+06/20/2017 11:21:25 PM GENERATE MP4: check in
+06/20/2017 11:21:25 PM CHECKIN MP4: HTTP Error 401: Unauthorized
+06/20/2017 11:21:25 PM GENERATE MP4: Generating 240
+06/20/2017 11:21:33 PM GENERATE MP4: check in
+06/20/2017 11:21:33 PM CHECKIN MP4: HTTP Error 401: Unauthorized
+06/20/2017 11:21:33 PM GENERATE MP4: Generating 360
+06/20/2017 11:21:43 PM GENERATE MP4: check in
+06/20/2017 11:21:43 PM CHECKIN MP4: HTTP Error 401: Unauthorized
+06/20/2017 11:21:43 PM GENERATE MP4: Skipping 1080 (input movie is 720)
+06/20/2017 11:21:43 PM ### JOB END   ###
+06/21/2017 11:12:55 AM ### JOB START ###
+06/21/2017 11:12:55 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:12:55 AM ### JOB END   ###
+06/21/2017 11:13:25 AM ### JOB START ###
+06/21/2017 11:13:25 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:13:25 AM ### JOB END   ###
+06/21/2017 11:14:12 AM ### JOB START ###
+06/21/2017 11:14:12 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:14:12 AM ### JOB END   ###
+06/21/2017 11:16:17 AM ### JOB START ###
+06/21/2017 11:16:17 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:16:17 AM ### JOB END   ###
+06/21/2017 11:16:32 AM ### JOB START ###
+06/21/2017 11:16:32 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:16:32 AM ### JOB END   ###
+06/21/2017 11:16:48 AM ### JOB START ###
+06/21/2017 11:16:48 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:16:48 AM ### JOB END   ###
+06/21/2017 11:16:50 AM ### JOB START ###
+06/21/2017 11:16:50 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:16:50 AM ### JOB END   ###
+06/21/2017 11:16:59 AM ### JOB START ###
+06/21/2017 11:16:59 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:16:59 AM GENERATE HLS: generating audio
+06/21/2017 11:16:59 AM ### JOB END   ###
+06/21/2017 11:20:02 AM ### JOB START ###
+06/21/2017 11:20:02 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:20:02 AM GENERATE HLS: skipping 1080 (input movie is 720)
+06/21/2017 11:20:02 AM GENERATE HLS: generating 240
+06/21/2017 11:20:07 AM GENERATE HLS: generating 360
+06/21/2017 11:20:23 AM GENERATE HLS: generating 64
+06/21/2017 11:20:24 AM GENERATE HLS: generating 720
+06/21/2017 11:20:49 AM WRITE IOS PLAYLIST: Playlist SampleVideo_1280x720_10mb.m3u8 generated
+06/21/2017 11:20:49 AM WRITE WEB PLAYLIST: Playlist SampleVideo_1280x720_10mb_web.m3u8 generated
+06/21/2017 11:20:49 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:20:50 AM GENERATE MP4: generating 720
+06/21/2017 11:21:55 AM GENERATE MP4: check in
+06/21/2017 11:21:55 AM ### JOB END   ###
+06/21/2017 11:34:02 AM ### JOB START ###
+06/21/2017 11:34:02 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:34:02 AM GENERATE HLS: skipping 1080 (input movie is 720)
+06/21/2017 11:34:02 AM GENERATE HLS: generating 240
+06/21/2017 11:34:07 AM GENERATE HLS: generating 360
+06/21/2017 11:34:15 AM GENERATE HLS: generating 64
+06/21/2017 11:34:16 AM GENERATE HLS: generating 720
+06/21/2017 11:34:42 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:34:42 AM GENERATE HLS: ios playlist SampleVideo_1280x720_10mb.m3u8 generated
+06/21/2017 11:34:42 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:34:42 AM GENERATE HLS:: web playlist SampleVideo_1280x720_10mb_web.m3u8 generated
+06/21/2017 11:34:42 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:34:42 AM GENERATE MP4: generating 720
+06/21/2017 11:35:23 AM GENERATE MP4: check in
+06/21/2017 11:35:23 AM ### JOB END   ###
+06/21/2017 11:38:19 AM ### JOB START ###
+06/21/2017 11:38:19 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:38:19 AM GENERATE MP4: generating 720
+06/21/2017 11:39:02 AM GENERATE MP4: check in
+06/21/2017 11:39:02 AM ### JOB END   ###
+06/21/2017 11:41:57 AM ### JOB START ###
+06/21/2017 11:41:57 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:41:57 AM GENERATE MP4: generating 720
+06/21/2017 11:42:38 AM GENERATE MP4: check in
+06/21/2017 11:42:38 AM ### JOB END   ###
+06/21/2017 11:43:11 AM ### JOB START ###
+06/21/2017 11:43:11 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:43:11 AM GENERATE MP4: generating 720
+06/21/2017 11:43:51 AM GENERATE MP4: check in
+06/21/2017 11:43:51 AM GENERATEM MP4: get filesize
+06/21/2017 11:43:51 AM ### JOB END   ###
+06/21/2017 11:45:18 AM ### JOB START ###
+06/21/2017 11:45:18 AM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 11:45:18 AM GENERATE MP4: generating 720
+06/21/2017 11:46:03 AM /tmp/encoder.pid already exists, exiting
+06/21/2017 12:00:48 PM ### JOB START ###
+06/21/2017 12:00:48 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:00:48 PM GENERATE MP4: generating 720
+06/21/2017 12:01:42 PM GENERATE MP4: check in
+06/21/2017 12:01:42 PM ### JOB END   ###
+06/21/2017 12:38:01 PM ### JOB START ###
+06/21/2017 12:38:01 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:38:01 PM GENERATE MP4: generating 720
+06/21/2017 12:38:45 PM GENERATE MP4: check in
+06/21/2017 12:38:45 PM GENERATEM MP4: get filesize mp4/SampleVideo_1280x720_10mb_720
+06/21/2017 12:38:45 PM GENERATEM MP4: get filesize mp4/SampleVideo_1280x720_10mb_720
+06/21/2017 12:38:45 PM ### JOB END   ###
+06/21/2017 12:41:29 PM ### JOB START ###
+06/21/2017 12:41:29 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:41:29 PM GENERATE MP4: generating 720
+06/21/2017 12:42:16 PM GENERATE MP4: check in
+06/21/2017 12:42:16 PM GENERATEM MP4: get filesize mp4/SampleVideo_1280x720_10mb_720..mp4
+06/21/2017 12:42:16 PM GENERATEM MP4: get filesize mp4/SampleVideo_1280x720_10mb_720..mp4
+06/21/2017 12:42:16 PM ### JOB END   ###
+06/21/2017 12:43:31 PM ### JOB START ###
+06/21/2017 12:43:31 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:43:31 PM GENERATE MP4: generating 720
+06/21/2017 12:44:13 PM GENERATE MP4: check in
+06/21/2017 12:44:13 PM GENERATEM MP4: get filesize mp4/SampleVideo_1280x720_10mb_720..mp4
+06/21/2017 12:44:13 PM GENERATEM MP4: get filesize mp4/SampleVideo_1280x720_10mb_720..mp4
+06/21/2017 12:44:13 PM ### JOB END   ###
+06/21/2017 12:46:03 PM ### JOB START ###
+06/21/2017 12:46:03 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:46:03 PM GENERATE MP4: generating 720
+06/21/2017 12:46:49 PM GENERATE MP4: check in
+06/21/2017 12:46:49 PM ### JOB END   ###
+06/21/2017 12:48:20 PM ### JOB START ###
+06/21/2017 12:48:20 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:48:20 PM GENERATE MP4: generating 720
+06/21/2017 12:49:02 PM GENERATE MP4: check in
+06/21/2017 12:49:02 PM GENERATE MP4: get filesize mp4/SampleVideo_1280x720_10mb_720.mp4
+06/21/2017 12:49:02 PM ### JOB END   ###
+06/21/2017 12:50:30 PM ### JOB START ###
+06/21/2017 12:50:30 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:50:31 PM GENERATE MP4: generating 720
+06/21/2017 12:51:14 PM GENERATE MP4: check in
+06/21/2017 12:51:14 PM GENERATE MP4: get filesize mp4/SampleVideo_1280x720_10mb_720.mp4
+06/21/2017 12:51:14 PM GENERATE MP4: get filesize 8541562
+06/21/2017 12:51:14 PM ### JOB END   ###
+06/21/2017 12:53:18 PM ### JOB START ###
+06/21/2017 12:53:18 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:53:18 PM GENERATE HLS: skipping 1080 (input movie is 720)
+06/21/2017 12:53:18 PM GENERATE HLS: generating 240
+06/21/2017 12:53:24 PM GENERATE HLS: generating 360
+06/21/2017 12:53:32 PM GENERATE HLS: generating 64
+06/21/2017 12:53:33 PM GENERATE HLS: generating 720
+06/21/2017 12:53:58 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:53:58 PM GENERATE HLS: ios playlist SampleVideo_1280x720_10mb.m3u8 generated
+06/21/2017 12:53:58 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:53:58 PM GENERATE HLS:: web playlist SampleVideo_1280x720_10mb_web.m3u8 generated
+06/21/2017 12:53:58 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 12:53:58 PM GENERATE MP4: generating 720
+06/21/2017 12:54:39 PM GENERATE MP4: check in
+06/21/2017 12:54:39 PM CHECKIN MP4: flavor Added
+06/21/2017 12:54:39 PM GENERATE MP4: generating 240
+06/21/2017 12:54:45 PM GENERATE MP4: check in
+06/21/2017 12:54:46 PM CHECKIN MP4: flavor Added
+06/21/2017 12:54:46 PM GENERATE MP4: generating 360
+06/21/2017 12:54:56 PM GENERATE MP4: check in
+06/21/2017 12:54:56 PM CHECKIN MP4: flavor Added
+06/21/2017 12:54:56 PM GENERATE MP4: Skipping 1080 (input movie is 720)
+06/21/2017 12:54:56 PM S3 TRANSFER: uploading files to bucket avmediatest
+06/21/2017 12:55:17 PM ### JOB END   ###
+06/21/2017 02:08:07 PM ### JOB START ###
+06/21/2017 02:08:07 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 02:08:07 PM GENERATE HLS: skipping 1080 (input movie is 720)
+06/21/2017 02:08:07 PM GENERATE HLS: generating 240
+06/21/2017 02:08:12 PM GENERATE HLS: generating 360
+06/21/2017 02:08:19 PM GENERATE HLS: generating 64
+06/21/2017 02:08:21 PM GENERATE HLS: generating 720
+06/21/2017 02:08:45 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 02:08:45 PM GENERATE HLS: ios playlist SampleVideo_1280x720_10mb.m3u8 generated
+06/21/2017 02:08:45 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 02:08:45 PM GENERATE HLS:: web playlist SampleVideo_1280x720_10mb_web.m3u8 generated
+06/21/2017 02:08:45 PM MEDIA PROBE: Probing SampleVideo_1280x720_10mb.mp4
+06/21/2017 02:08:46 PM GENERATE MP4: generating 720
+06/21/2017 02:09:49 PM GENERATE MP4: check in
+06/21/2017 02:09:49 PM CHECKIN MP4: flavor Added
+06/21/2017 02:09:49 PM GENERATE MP4: generating 240
+06/21/2017 02:09:57 PM GENERATE MP4: check in
+06/21/2017 02:09:57 PM CHECKIN MP4: flavor Added
+06/21/2017 02:09:57 PM GENERATE MP4: generating 360
+06/21/2017 02:10:09 PM GENERATE MP4: check in
+06/21/2017 02:10:09 PM CHECKIN MP4: flavor Added
+06/21/2017 02:10:09 PM GENERATE MP4: Skipping 1080 (input movie is 720)
+06/21/2017 02:10:09 PM S3 TRANSFER: uploading files to bucket avmediatest
+06/21/2017 02:10:33 PM Job: Cleaning up
+06/21/2017 02:10:33 PM ### JOB END   ###

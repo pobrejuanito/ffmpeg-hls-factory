@@ -4,6 +4,7 @@
 import logging, ConfigParser, urllib, urllib2, json
 from job import Job
 
+
 class ApiManager(object):
 
     def __init__(self):
@@ -14,14 +15,14 @@ class ApiManager(object):
         self.api_username = config.get('MasterAPI', 'Username')
         self.api_password = config.get('MasterAPI', 'Password')
         self.fetch_job_action = config.get('MasterAPI', 'Fetchjob')
-        self.slave_id = config.get('MasterAPI','SlaveId')
+        self.slave_id = config.get('MasterAPI', 'SlaveId')
         self.world_api_url = config.get('WorldAPI', 'URL')
-        self.mp4_checkin_url = config.get('WorldAPI','CheckInMP4URL')
+        self.mp4_checkin_url = config.get('WorldAPI', 'CheckInMP4URL')
         self.world_api_header = {"Authorization": "Bearer %s" % config.get('WorldAPI', 'Token')}
         self.__prepareRequest()
 
     # Gets a job, if no job returns an empty list
-    def getJob(self):
+    def get_job(self):
 
         new_job = Job()
         data = {'slaveId': self.slave_id}
@@ -49,50 +50,51 @@ class ApiManager(object):
 
         return new_job
 
-    # Gets a job, if no job returns an empty list
     def getLocalJob(self):
-
+        # Gets a job, if no job returns an empty list
         new_job = Job()
-
         new_job.fileName = 'SampleVideo_1280x720_10mb.mp4'
         new_job.recordingId = 1
         new_job.downloadPath = ''
         new_job.downloadHostname = ''
         new_job.destinationURL = ''
         new_job.id = 1
-
         return new_job
 
-    # check in job with the master
-    def checkInJob(self, job):
-
+    def checkin_job(self, job):
+        # check in job with the master
         params = urllib.urlencode({'slaveId': self.slave_id, 'status': job.status})
         url = self.api_url + self.fetch_job_action + '/' + job.id + '?' + params
         request = urllib2.Request(url)
-        request.get_method = lambda : 'PUT' # not very pretty
+        # not very pretty
+        request.get_method = lambda : 'PUT'
         data = json.load(urllib2.urlopen(request))
         logging.info('API: Job updated with status %s' % (job.status))
 
-    def checkInMp4Flavor(self, payload):
+    def checkin_mp4_flavor(self, payload):
 
         url = self.world_api_url + '/' + self.mp4_checkin_url
         request = urllib2.Request(url, urllib.urlencode(payload), self.world_api_header)
-        request.get_method = lambda : 'POST' # not very pretty
+        # not very pretty
+        request.get_method = lambda: 'POST'
 
         try:
             data = json.load(urllib2.urlopen(request))
             if data['status_code'] is not 201:
-                logging.info('CHECKIN MP4: Error checking in flavor: %')
+                logging.info('CHECKIN MP4: error checking in flavor: %')
             else:
-                logging.info('CHECKIN MP4: Flavor Added')
+                logging.info('CHECKIN MP4: flavor Added')
+
         except urllib2.HTTPError as e:
-            logging.warning("CHECKIN MP4: %s" %e)
+            logging.warning("CHECKIN MP4: %s" % e)
 
     def __prepareRequest(self):
 
         password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
         password_mgr.add_password(None, self.api_url, self.api_username, self.api_password)
-
-        auth = urllib2.HTTPBasicAuthHandler(password_mgr) # create an authentication handler
-        opener = urllib2.build_opener(auth) # create an opener with the authentication handler
-        urllib2.install_opener(opener) # install the opener...
+        # create an authentication handler
+        auth = urllib2.HTTPBasicAuthHandler(password_mgr)
+        # create an opener with the authentication handler
+        opener = urllib2.build_opener(auth)
+        # install the opener...
+        urllib2.install_opener(opener)
