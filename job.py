@@ -137,7 +137,7 @@ class Job(object):
                     logging.info('GENERATE MP4: check in')
                     api.checkin_mp4_flavor({
                         'recordingId': self.recordingId,
-                        'filename': self.fileName,
+                        'filename': self.mp4_file_name + '_' + key + file_extension,
                         'filesize': os.path.getsize(file_path),
                         'duration': round(float(self.media_info['duration']), 1),
                         'bitrate': self.media_info['bit_rate'],
