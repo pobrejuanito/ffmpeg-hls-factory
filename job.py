@@ -222,7 +222,7 @@ class Job(object):
 
             for filename in upload_file_names:
                 source_path = os.path.join(self.output_dir_mp4 + filename)
-                dest_path = os.path.join(self.destinationURL + self.output_dir_mp4, filename)
+                dest_path = os.path.join(self.destinationURL, filename)
 
                 k = boto.s3.key.Key(bucket)
                 k.key = dest_path
