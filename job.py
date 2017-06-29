@@ -82,13 +82,13 @@ class Job(object):
     def generate_hls(self):
 
         self.probe_media_file()
-        height = 1080
+        width = 1920
 
-        if 'height' in self.media_info:
-            height = int(self.media_info['height'])
+        if 'width' in self.media_info:
+            width = int(self.media_info['width'])
 
         for key in sorted(self.hls_config):
-            if height >= int(key):
+            if width >= int(key):
                 logging.info('GENERATE HLS: generating %s' % (key))
                 cmd = (self.hls_config[key]['profile'] % (
                     self.ffmpeg,
@@ -100,7 +100,7 @@ class Job(object):
                 out, err = p.communicate()
                 #print out, err
             else:
-                logging.info('GENERATE HLS: skipping %s (input movie is %s)' % (key, height))
+                logging.info('GENERATE HLS: skipping %s (input movie is %s)' % (key, width))
         # generate index m3u8
         self.write_ios_playlist()
         self.write_web_playlist()
@@ -109,17 +109,17 @@ class Job(object):
 
         self.probe_media_file()
 
-        height = 1080
+        width = 1920
         self.mp4_file_name, file_extension = os.path.splitext(self.fileName)
         file_extension = '.mp4'
 
-        if 'height' in self.media_info:
-            height = int(self.media_info['height'])
+        if 'width' in self.media_info:
+            width = int(self.media_info['width'])
 
         for key in self.mp4_config:
             logging.info('GENERATE MP4: key %s' % key)
-            logging.info('GENERATE MP4: height %s' % height)
-            if height >= int(key):
+            logging.info('GENERATE MP4: width %s' % width)
+            if width >= int(key):
 
                 logging.info('GENERATE MP4: generating %s' % (key))
                 cmd = (self.mp4_config[key] % (
@@ -147,15 +147,15 @@ class Job(object):
                         'height': self.media_info['height'],
                     })
             else:
-                logging.info('GENERATE MP4: Skipping %s (input movie is %s)' % (key, height))
+                logging.info('GENERATE MP4: Skipping %s (input movie is %s)' % (key, width))
 
     def write_ios_playlist(self):
 
         self.probe_media_file()
-        height = 1080
+        width = 1920
 
-        if 'height' in self.media_info:
-            height = int(self.media_info['height'])
+        if 'width' in self.media_info:
+            width = int(self.media_info['width'])
 
         file_name, file_extension = os.path.splitext(self.fileName)
         self.ios_playlist = file_name + ".m3u8"
@@ -164,7 +164,7 @@ class Job(object):
         f.write('#EXTM3U\n')
 
         for key in sorted(self.hls_config):
-            if height >= int(key):
+            if width >= int(key):
                 f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
                 f.write(self.output_dir_hls+key+'_.m3u8\n')
 
@@ -174,10 +174,10 @@ class Job(object):
     def write_web_playlist(self):
 
         self.probe_media_file()
-        height = 1080
+        width = 1920
 
-        if 'height' in self.media_info:
-            height = int(self.media_info['height'])
+        if 'width' in self.media_info:
+            width = int(self.media_info['width'])
 
         file_name, file_extension = os.path.splitext(self.fileName)
         self.web_playlist = file_name + "_web.m3u8"
@@ -187,7 +187,7 @@ class Job(object):
 
         for key in sorted(self.hls_config):
             # omitt audio
-            if int(key) != '64' and height >= int(key):
+            if int(key) != '64' and width >= int(key):
                 f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
                 f.write(self.output_dir_hls+key+'_.m3u8\n')
 
