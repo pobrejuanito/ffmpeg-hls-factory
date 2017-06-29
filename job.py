@@ -116,7 +116,8 @@ class Job(object):
             height = int(self.media_info['height'])
 
         for key in self.mp4_config:
-
+            logging.info('GENERATE MP4: key %s' % key)
+            logging.info('GENERATE MP4: height %s' % height)
             if height >= int(key):
 
                 logging.info('GENERATE MP4: generating %s' % (key))
@@ -133,8 +134,8 @@ class Job(object):
                 if p.returncode:
                     logging.info('GENERATE MP4: ffmpeg failed out %s err %s' % (out, err))
                 else:
-                    file_path = self.output_dir_mp4 + self.mp4_file_name + '_' + key + file_extension
                     logging.info('GENERATE MP4: check in')
+                    file_path = self.output_dir_mp4 + self.mp4_file_name + '_' + key + file_extension
                     api.checkin_mp4_flavor({
                         'recordingId': self.recordingId,
                         'filename': self.mp4_file_name + '_' + key + file_extension,
@@ -257,7 +258,10 @@ class Job(object):
         for line in out.split(os.linesep):
             if line.strip():
                 name, value = line.partition("=")[::2]
-                self.media_info[name.strip()] = value
+                # ffprobe sometime returns many of the same values
+                if name.strip() not in self.media_info:
+                    self.media_info[name.strip()] = value
+        #print self.media_info
 
     def cleanup(self):
         logging.info('Job: Cleaning up')
