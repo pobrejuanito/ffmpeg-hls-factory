@@ -111,6 +111,7 @@ class Job(object):
 
         height = 1080
         self.mp4_file_name, file_extension = os.path.splitext(self.fileName)
+        file_extension = '.mp4'
 
         if 'height' in self.media_info:
             height = int(self.media_info['height'])
