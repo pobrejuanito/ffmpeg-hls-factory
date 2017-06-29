@@ -72,6 +72,7 @@ class ApiManager(object):
 
     def checkin_mp4_flavor(self, payload):
 
+        print payload
         url = self.world_api_url + '/' + self.mp4_checkin_url
         request = urllib2.Request(url, urllib.urlencode(payload), self.world_api_header)
         # not very pretty
