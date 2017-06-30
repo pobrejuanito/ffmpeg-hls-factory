@@ -70,9 +70,8 @@ class ApiManager(object):
         data = json.load(urllib2.urlopen(request))
         logging.info('API: Job updated with status %s' % (job.status))
 
-    def checkin_mp4_flavor(self, payload):
-
-        print payload
+    def checkin_flavor(self, payload):
+        #print payload
         url = self.world_api_url + '/' + self.mp4_checkin_url
         request = urllib2.Request(url, urllib.urlencode(payload), self.world_api_header)
         # not very pretty

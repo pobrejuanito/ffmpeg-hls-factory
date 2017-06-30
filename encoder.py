@@ -43,7 +43,7 @@ def main():
         logging.info("### JOB START ###")
         try:
             job.download_file()
-            job.generate_hls()
+            job.generate_hls(api)
             job.generate_mp4(api)
             job.transfer_S3()
             job.cleanup()
