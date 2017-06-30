@@ -172,13 +172,13 @@ class Job(object):
 
         api.checkin_flavor({
             'recordingId': self.recordingId,
-            'filename': file_name,
+            'filename': self.ios_playlist,
             'filesize': 0,
             'duration': round(float(media_info['duration']), 1),
             'bitrate': media_info['bit_rate'],
             'width': media_info['width'],
             'height': media_info['height'],
-            'container': 'm3u8'
+            'container': 'm3u8_ios'
         })
         logging.info('GENERATE HLS: ios playlist %s generated'%(self.ios_playlist))
 
@@ -206,13 +206,13 @@ class Job(object):
 
         api.checkin_flavor({
             'recordingId': self.recordingId,
-            'filename': file_name,
+            'filename': self.web_playlist,
             'filesize': 0,
             'duration': round(float(media_info['duration']), 1),
             'bitrate': media_info['bit_rate'],
             'width': media_info['width'],
             'height': media_info['height'],
-            'container': 'm3u8'
+            'container': 'm3u8_web'
         })
 
         logging.info('GENERATE HLS:: web playlist %s generated'%(self.web_playlist))
