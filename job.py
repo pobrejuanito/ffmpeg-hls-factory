@@ -9,7 +9,6 @@ class Job(object):
         config.read('settings.ini')
 
         self.id = 0
-        self.media_info = {}
         self.status = 'Unknown'
         self.fileName = ''
         self.downloadPath = ''
@@ -81,11 +80,11 @@ class Job(object):
 
     def generate_hls(self):
 
-        self.probe_media_file()
+        media_info = self.probe_media_file(self.fileName)
         width = 1920
 
-        if 'width' in self.media_info:
-            width = int(self.media_info['width'])
+        if 'width' in media_info:
+            width = int(media_info['width'])
 
         for key in sorted(self.hls_config):
             if width >= int(key):
@@ -107,14 +106,13 @@ class Job(object):
 
     def generate_mp4(self, api):
 
-        self.probe_media_file()
-
+        media_info = self.probe_media_file(self.fileName)
         width = 1920
         self.mp4_file_name, file_extension = os.path.splitext(self.fileName)
         file_extension = '.mp4'
 
-        if 'width' in self.media_info:
-            width = int(self.media_info['width'])
+        if 'width' in media_info:
+            width = int(media_info['width'])
 
         for key in self.mp4_config:
             logging.info('GENERATE MP4: key %s' % key)
@@ -137,25 +135,26 @@ class Job(object):
                 else:
                     logging.info('GENERATE MP4: check in')
                     file_path = self.output_dir_mp4 + self.mp4_file_name + '_' + key + file_extension
+                    media_info = self.probe_media_file(file_path)
                     api.checkin_mp4_flavor({
                         'recordingId': self.recordingId,
                         'filename': self.mp4_file_name + '_' + key + file_extension,
                         'filesize': os.path.getsize(file_path),
-                        'duration': round(float(self.media_info['duration']), 1),
-                        'bitrate': self.media_info['bit_rate'],
-                        'width': self.media_info['width'],
-                        'height': self.media_info['height'],
+                        'duration': round(float(media_info['duration']), 1),
+                        'bitrate': media_info['bit_rate'],
+                        'width': media_info['width'],
+                        'height': media_info['height'],
                     })
             else:
                 logging.info('GENERATE MP4: Skipping %s (input movie is %s)' % (key, width))
 
     def write_ios_playlist(self):
 
-        self.probe_media_file()
+        media_info = self.probe_media_file(self.fileName)
         width = 1920
 
-        if 'width' in self.media_info:
-            width = int(self.media_info['width'])
+        if 'width' in media_info:
+            width = int(media_info['width'])
 
         file_name, file_extension = os.path.splitext(self.fileName)
         self.ios_playlist = file_name + ".m3u8"
@@ -173,11 +172,11 @@ class Job(object):
 
     def write_web_playlist(self):
 
-        self.probe_media_file()
+        media_info = self.probe_media_file(self.fileName)
         width = 1920
 
-        if 'width' in self.media_info:
-            width = int(self.media_info['width'])
+        if 'width' in media_info:
+            width = int(media_info['width'])
 
         file_name, file_extension = os.path.splitext(self.fileName)
         self.web_playlist = file_name + "_web.m3u8"
@@ -249,10 +248,11 @@ class Job(object):
             logging.error(e)
             raise Exception('S3 TRANSFER: error: ' + e)
 
-    def probe_media_file(self):
+    def probe_media_file(self, fileName):
 
-        cmd = (self.ffprobe_params % (self.ffprobe, self.fileName)).split()
-        logging.info('MEDIA PROBE: Probing %s' % self.fileName)
+        media_info = {}
+        cmd = (self.ffprobe_params % (self.ffprobe, fileName)).split()
+        logging.info('MEDIA PROBE: Probing %s' % fileName)
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = p.communicate()
         #print out
@@ -260,10 +260,10 @@ class Job(object):
             if line.strip():
                 name, value = line.partition("=")[::2]
                 # ffprobe sometime returns many of the same values
-                if name.strip() not in self.media_info:
-                    self.media_info[name.strip()] = value
-        #print self.media_info
-
+                if name.strip() not in media_info:
+                    media_info[name.strip()] = value
+        return media_info
+        
     def cleanup(self):
         logging.info('Job: Cleaning up')
         # delete HLS directory with all of its contents
