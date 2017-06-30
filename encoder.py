@@ -42,7 +42,6 @@ def main():
     if job.id != 0:
         logging.info("### JOB START ###")
         try:
-            job.probe_media_file()
             job.download_file()
             job.generate_hls()
             job.generate_mp4(api)
