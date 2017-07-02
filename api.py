@@ -52,7 +52,7 @@ class ApiManager(object):
     def getLocalJob(self):
         # Gets a job, if no job returns an empty list
         new_job = Job()
-        new_job.fileName = 'Episode1-Constantine-Compromise_Controversy-005.mov'
+        new_job.fileName = '20170118-1030-16672-acda34cfb1541dcfd9739b1d2d5c9836.mov'
         new_job.recordingId = 1
         new_job.downloadPath = ''
         new_job.downloadHostname = ''

@@ -104,8 +104,9 @@ class Job(object):
             width = int(media_info['width'])
 
         for key in sorted(self.hls_config):
+
             if width >= self.hls_config[key]['width']:
-                logging.info('GENERATE HLS: generating %s' % (key))
+                logging.info('GENERATE HLS: generating %s' % self.hls_config[key]['width'])
                 cmd = (self.hls_config[key]['profile'] % (
                     self.ffmpeg,
                     self.fileName,
@@ -132,8 +133,7 @@ class Job(object):
             width = int(media_info['width'])
 
         for key in self.mp4_config:
-            logging.info('GENERATE MP4: key %s' % key)
-            logging.info('GENERATE MP4: width %s' % width)
+
             if width >= self.mp4_config[key]['width']:
                 logging.info('GENERATE MP4: generating %s' % (key))
                 cmd = (self.mp4_config[key]['profile'] % (
