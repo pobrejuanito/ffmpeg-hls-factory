@@ -20,36 +20,53 @@ class Job(object):
         self.audio_encoder = config.get('Encoder', 'audio_encoder')
         self.hls_config = {
             '64': {
+                'width': 0,
                 'profile': config.get('Encoder', 'hls_audio'),
                 'bandwidth': config.get('Encoder', 'audio_bandwidth'),
                 'name': config.get('Encoder', 'audio_name')
             },
             '240': {
+                'width': 352,
                 'profile': config.get('Encoder', 'hls_cell'),
                 'bandwidth': config.get('Encoder', 'cell_bandwidth'),
                 'name': config.get('Encoder', 'cell_name')
             },
             '360': {
+                'width': 480,
                 'profile': config.get('Encoder', 'hls_wifi_360'),
                 'bandwidth': config.get('Encoder', 'wifi_360_bandwidth'),
                 'name': config.get('Encoder', 'wifi_360_name')
             },
             '720': {
+                'width': 1280,
                 'profile': config.get('Encoder', 'hls_wifi_720'),
                 'bandwidth': config.get('Encoder', 'wifi_720_bandwidth'),
                 'name': config.get('Encoder', 'wifi_720_name')
             },
             '1080': {
+                'width': 1920,
                 'profile': config.get('Encoder', 'hls_wifi_1080'),
                 'bandwidth': config.get('Encoder', 'wifi_1080_bandwidth'),
                 'name': config.get('Encoder', 'wifi_1080_name')
             }
         }
         self.mp4_config = {
-            '240': config.get('Encoder', 'mp4_240'),
-            '360': config.get('Encoder', 'mp4_360'),
-            '720': config.get('Encoder', 'mp4_720'),
-            '1080': config.get('Encoder', 'mp4_1080')
+            '240': {
+                'width': 352,
+                'profile': config.get('Encoder', 'mp4_240')
+            },
+            '360': {
+                'width': 480,
+                'profile': config.get('Encoder', 'mp4_360')
+            },
+            '720': {
+                'width': 1280,
+                'profile': config.get('Encoder', 'mp4_720')
+            },
+            '1080': {
+                'width': 1920,
+                'profile': config.get('Encoder', 'mp4_1080')
+            }
         }
         self.output_dir_hls = config.get('Encoder', 'output_dir_hls')
         self.output_dir_mp4 = config.get('Encoder', 'output_dir_mp4')
@@ -87,7 +104,7 @@ class Job(object):
             width = int(media_info['width'])
 
         for key in sorted(self.hls_config):
-            if width >= int(key):
+            if width >= self.hls_config[key]['width']:
                 logging.info('GENERATE HLS: generating %s' % (key))
                 cmd = (self.hls_config[key]['profile'] % (
                     self.ffmpeg,
@@ -117,10 +134,9 @@ class Job(object):
         for key in self.mp4_config:
             logging.info('GENERATE MP4: key %s' % key)
             logging.info('GENERATE MP4: width %s' % width)
-            if width >= int(key):
-
+            if width >= self.mp4_config[key]['width']:
                 logging.info('GENERATE MP4: generating %s' % (key))
-                cmd = (self.mp4_config[key] % (
+                cmd = (self.mp4_config[key]['profile'] % (
                     self.ffmpeg,
                     self.fileName,
                     self.audio_encoder,
@@ -164,7 +180,7 @@ class Job(object):
         f.write('#EXTM3U\n')
 
         for key in sorted(self.hls_config):
-            if width >= int(key):
+            if width >= self.hls_config[key]['width']:
                 f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
                 f.write(self.output_dir_hls+key+'_.m3u8\n')
 
@@ -198,7 +214,7 @@ class Job(object):
 
         for key in sorted(self.hls_config):
             # omitt audio
-            if int(key) != '64' and width >= int(key):
+            if int(key) != 64 and width >= self.hls_config[key]['width']:
                 f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
                 f.write(self.output_dir_hls+key+'_.m3u8\n')
 
