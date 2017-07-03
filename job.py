@@ -301,6 +301,8 @@ class Job(object):
                 name, value = line.partition("=")[::2]
                 # ffprobe sometime returns many of the same values
                 if name.strip() not in media_info:
+                    if ( value == 'N/A'):
+                        value = 0
                     media_info[name.strip()] = value
         return media_info
         

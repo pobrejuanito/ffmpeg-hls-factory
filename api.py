@@ -66,7 +66,7 @@ class ApiManager(object):
         url = self.api_url + self.fetch_job_action + '/' + job.id + '?' + params
         request = urllib2.Request(url)
         # not very pretty
-        request.get_method = lambda : 'PUT'
+        request.get_method = lambda: 'PUT'
         data = json.load(urllib2.urlopen(request))
         logging.info('API: Job updated with status %s' % (job.status))
 
