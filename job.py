@@ -32,7 +32,7 @@ class Job(object):
                 'name': config.get('Encoder', 'cell_name')
             },
             '360': {
-                'width': 480,
+                'width': 640,
                 'profile': config.get('Encoder', 'hls_wifi_360'),
                 'bandwidth': config.get('Encoder', 'wifi_360_bandwidth'),
                 'name': config.get('Encoder', 'wifi_360_name')
@@ -56,7 +56,7 @@ class Job(object):
                 'profile': config.get('Encoder', 'mp4_240')
             },
             '360': {
-                'width': 480,
+                'width': 640,
                 'profile': config.get('Encoder', 'mp4_360')
             },
             '720': {
