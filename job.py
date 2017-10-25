@@ -6,7 +6,7 @@ class Job(object):
     def __init__(self):
 
         config = ConfigParser.ConfigParser()
-        config.read('settings.ini')
+        config.read('/home/ec2-user/settings.ini')
 
         self.id = 0
         self.status = 'Unknown'
@@ -69,6 +69,7 @@ class Job(object):
             }
         }
         self.output_dir_hls = config.get('Encoder', 'output_dir_hls')
+        self.remote_dir_hls = config.get('Encoder', 'remote_dir_hls')
         self.output_dir_mp4 = config.get('Encoder', 'output_dir_mp4')
         self.s3_bucket = config.get('AWS_S3', 'Bucket')
         self.s3_access = config.get('AWS_S3', 'ACCESS_KEY_ID')
@@ -182,7 +183,7 @@ class Job(object):
         for key in sorted(self.hls_config):
             if width >= self.hls_config[key]['width']:
                 f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
-                f.write(self.output_dir_hls+key+'_.m3u8\n')
+                f.write(self.remote_dir_hls+key+'_.m3u8\n')
 
         f.close()
 
@@ -216,7 +217,7 @@ class Job(object):
             # omitt audio
             if int(key) != 64 and width >= self.hls_config[key]['width']:
                 f.write('#EXT-X-STREAM-INF:PROGRAM-ID=1,NAME="%s",BANDWIDTH=%s\n'%(self.hls_config[key]['name'], self.hls_config[key]['bandwidth']))
-                f.write(self.output_dir_hls+key+'_.m3u8\n')
+                f.write(self.remote_dir_hls+key+'_.m3u8\n')
 
         f.close()
 
@@ -248,7 +249,7 @@ class Job(object):
 
             for filename in upload_file_names:
                 source_path = os.path.join(self.output_dir_hls + filename)
-                dest_path = os.path.join(self.destinationURL + self.output_dir_hls, filename)
+                dest_path = os.path.join(self.destinationURL + self.remote_dir_hls, filename)
 
                 k = boto.s3.key.Key(bucket)
                 k.key = dest_path

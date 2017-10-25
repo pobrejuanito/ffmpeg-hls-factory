@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 
 def main():
 
-    init()
+    init('/home/ec2-user/settings.ini')
     # First check if the script is already running
     pid = str(os.getpid())
     pid_file = "/tmp/encoder.pid"
@@ -55,10 +55,10 @@ def main():
     os.unlink(pid_file)
 
 
-def init():
+def init(settings_file):
 
     config = ConfigParser.ConfigParser()
-    config.read('settings.ini')
+    config.read(settings_file)
     # Setup Logging
     logging.basicConfig(
         filename=config.get('Encoder','log_file'),
