@@ -5,4 +5,4 @@ bin/
 hls/
 .idea/
 settings.ini
-encoder.log
+./encoder.log

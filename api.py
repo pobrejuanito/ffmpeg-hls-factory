@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ApiManager
 # Description: Gets a new job from master, checks in a job from master
 

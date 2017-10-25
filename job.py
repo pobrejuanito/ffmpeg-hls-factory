@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import ConfigParser, logging,urllib, json, subprocess
 import boto,os, shutil
 
