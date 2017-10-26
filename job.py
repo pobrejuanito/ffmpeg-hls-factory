@@ -99,6 +99,7 @@ class Job(object):
 
     def generate_hls(self, api):
 
+        logging.info('GENERATE HLS: START')
         media_info = self.probe_media_file(self.fileName)
         width = 1920
 
@@ -123,9 +124,11 @@ class Job(object):
         # generate index m3u8
         self.write_ios_playlist(api)
         self.write_web_playlist(api)
+        logging.info('GENERATE HLS: END')
 
     def generate_mp4(self, api):
 
+        logging.info('GENERATE MP4: Begin')
         media_info = self.probe_media_file(self.fileName)
         width = 1920
         self.mp4_file_name, file_extension = os.path.splitext(self.fileName)
@@ -156,7 +159,7 @@ class Job(object):
                     media_info = self.probe_media_file(file_path)
                     api.checkin_flavor({
                         'recordingId': self.recordingId,
-                        'filename': self.mp4_file_name + '_' + key + file_extension,
+                        'filename': unicode(self.mp4_file_name + '_' + key + file_extension).encode('utf-8'),
                         'filesize': os.path.getsize(file_path),
                         'duration': round(float(media_info['duration']), 1),
                         'bitrate': media_info['bit_rate'],
@@ -167,8 +170,11 @@ class Job(object):
             else:
                 logging.info('GENERATE MP4: Skipping %s (input movie is %s)' % (key, width))
 
+        logging.info('GENERATE MP4: End')
+
     def write_ios_playlist(self, api):
 
+        logging.info('WRITE IOS PLAYLIST: BEGIN')
         media_info = self.probe_media_file(self.fileName)
         width = 1920
 
@@ -187,10 +193,10 @@ class Job(object):
                 f.write(self.remote_dir_hls+key+'_.m3u8\n')
 
         f.close()
-
+        logging.info('WRITE IOS PLAYLIST: checkin flavor')
         api.checkin_flavor({
             'recordingId': self.recordingId,
-            'filename': self.ios_playlist,
+            'filename': unicode(self.ios_playlist).encode('utf-8'),
             'filesize': 0,
             'duration': round(float(media_info['duration']), 1),
             'bitrate': media_info['bit_rate'],
@@ -198,7 +204,7 @@ class Job(object):
             'height': media_info['height'],
             'container': 'm3u8_ios'
         })
-        logging.info('GENERATE HLS: ios playlist %s generated'%(self.ios_playlist))
+        logging.info('WRITE IOS PLAYLIST: ios playlist %s generated'%(self.ios_playlist))
 
     def write_web_playlist(self, api):
 
@@ -224,7 +230,7 @@ class Job(object):
 
         api.checkin_flavor({
             'recordingId': self.recordingId,
-            'filename': self.web_playlist,
+            'filename': unicode(self.web_playlist).encode('utf-8'),
             'filesize': 0,
             'duration': round(float(media_info['duration']), 1),
             'bitrate': media_info['bit_rate'],
@@ -306,6 +312,7 @@ class Job(object):
                     if ( value == 'N/A'):
                         value = 0
                     media_info[name.strip()] = value
+        logging.info('MEDIA PROBE: END');
         return media_info
         
     def cleanup(self):

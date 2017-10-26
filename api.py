@@ -69,15 +69,17 @@ class ApiManager(object):
         # not very pretty
         request.get_method = lambda: 'PUT'
         data = json.load(urllib2.urlopen(request))
-        logging.info('API: Job updated with status %s' % (job.status))
+        logging.info('API: checkin_job updated with status %s' % (job.status))
 
     def checkin_flavor(self, payload):
+        logging.info('CHECKIN: START')
         #print payload
         url = self.world_api_url + '/' + self.mp4_checkin_url
+        logging.info('CHECKIN: urlib2')
         request = urllib2.Request(url, urllib.urlencode(payload), self.world_api_header)
         # not very pretty
         request.get_method = lambda: 'POST'
-
+        logging.info('CHECKIN: try')
         try:
             data = json.load(urllib2.urlopen(request))
             if data['status_code'] is not 201:
@@ -87,6 +89,7 @@ class ApiManager(object):
 
         except urllib2.HTTPError as e:
             logging.warning("CHECKIN MP4: %s" % e)
+        logging.info('CHECKIN: END')
 
     def __prepareRequest(self):
 
