@@ -248,12 +248,13 @@ class Job(object):
             logging.info('S3 TRANSFER: uploading files to bucket %s' % (self.s3_bucket))
             conn = boto.connect_s3(self.s3_access,self.s3_secret)
             bucket = conn.get_bucket(self.s3_bucket)
-
+            logging.info('S3 TRANSFER: HLS PREPARE DATA')
             # Transfer HLS
             for (self.output_dir_hls, dirname, filename) in os.walk(self.output_dir_hls):
-                upload_file_names.extend(filename)
+                upload_file_names.extend(unicode(filename).encode('utf-8'))
                 break
 
+            logging.info('S3 TRANSFER: HLS UPLOAD DATA')
             for filename in upload_file_names:
                 source_path = os.path.join(self.output_dir_hls + filename)
                 dest_path = os.path.join(self.destinationURL + self.remote_dir_hls, filename)
@@ -263,12 +264,14 @@ class Job(object):
                 k.set_contents_from_filename(source_path)
                 k.set_acl('public-read')
 
+            logging.info('S3 TRANSFER: MP4 PREPARE DATA')
             # Transfer MP4
             upload_file_names = []
             for (self.output_dir_mp4, dirname, filename) in os.walk(self.output_dir_mp4):
-                upload_file_names.extend(filename)
+                upload_file_names.extend(unicode(filename).encode('utf-8'))
                 break
 
+            logging.info('S3 TRANSFER: MP4 UPLOAD DATA')
             for filename in upload_file_names:
                 source_path = os.path.join(self.output_dir_mp4 + filename)
                 dest_path = os.path.join(self.destinationURL, filename)
@@ -278,12 +281,14 @@ class Job(object):
                 k.set_contents_from_filename(source_path)
                 k.set_acl('public-read')
 
+            logging.info('S3 TRANSFER: IOS PLAYLIST')
             # Upload index playlist
             k = boto.s3.key.Key(bucket)
             k.key = os.path.join(self.destinationURL, self.ios_playlist)
             k.set_contents_from_filename(os.path.join(self.ios_playlist))
             k.set_acl('public-read')
 
+            logging.info('S3 TRANSFER: IOS WEB PLAYLIST')
             k = boto.s3.key.Key(bucket)
             k.key = os.path.join(self.destinationURL, self.web_playlist)
             k.set_contents_from_filename(os.path.join(self.web_playlist))
@@ -295,6 +300,8 @@ class Job(object):
             # 403 Forbidden, 404 Not Found
             logging.error(e)
             raise Exception('S3 TRANSFER: error: ' + e)
+
+        logging.info('S3 TRANSFER END')
 
     def probe_media_file(self, fileName):
 
